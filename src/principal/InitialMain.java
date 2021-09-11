@@ -1,7 +1,8 @@
+
 package principal;
 
 import java.util.ArrayList;
-
+import java.util.List;
 import java.util.Scanner;
 
 import controllers.servicos.PlanoDeRefeicao;
@@ -10,72 +11,13 @@ import controllers.servicos.Refeicao;
 import controllers.servicos.frete.Frete;
 import models.servicos.IServico;
 import views.menus.MenuMain;
+import views.menus.MenusUsuarios;
 
-public class Principal {
-
+public class InitialMain implements IServico {
     public static void main(String[] args) {
 
-        // criar as arrays
         ArrayList<IServico> produto = new ArrayList();
         ArrayList<Frete> frete = new ArrayList();
-
-        // produtos iniciais
-        Produtos produtos = new Produtos("0", "paçoca", 2.70, 800);
-        Produtos produtos1 = new Produtos("1", "bolo", 5.00, 50);
-        Produtos produtos2 = new Produtos("2", "pizza brotinho", 2.50, 100);
-        Produtos produtos3 = new Produtos("3", "hamburguer", 20.00, 45);
-        Produtos produtos4 = new Produtos("4", "cerveja itaipava", 3.50, 400);
-        Produtos produtos5 = new Produtos("5", "cerveja devassa", 4.00, 200);
-        Produtos produtos6 = new Produtos("6", "guarana antartica", 5.70, 200);
-        Produtos produtos7 = new Produtos("7", "coca cola", 6.00, 300);
-        Produtos produtos8 = new Produtos("8", "fanta uva", 6.50, 300);
-        Produtos produtos9 = new Produtos("9", "fanta laranja", 6.50, 300);
-        Refeicao refeição = new Refeicao("10", "bife acebolado", "refrigerante", "farofa", 25.00);
-        Refeicao refeição1 = new Refeicao("11", "lasanha", "refrigerante", "ketchup", 20.00);
-        Refeicao refeição2 = new Refeicao("12", "frango a parmegiana", "cerveja", "farofa", 25.00);
-        Refeicao refeição3 = new Refeicao("13", "carne de sol", "cerveja", "batata frita", 20.00);
-        Refeicao refeição4 = new Refeicao("14", "frango grelhado", "refrigerante", "farofa", 15.00);
-        Refeicao refeição5 = new Refeicao("15", "peixe frito", "cerveja", "farofa", 15.00);
-        Refeicao refeição6 = new Refeicao("16", "porção de batata frita", "refrigerante", "ketchup", 10.00);
-        PlanoDeRefeicao plano = new PlanoDeRefeicao("17", "gordo", 12, 300, 1000);
-        PlanoDeRefeicao plano1 = new PlanoDeRefeicao("18", "magro", 12, 150, 500);
-        PlanoDeRefeicao plano2 = new PlanoDeRefeicao("19", "medio", 12, 170, 600);
-        PlanoDeRefeicao plano3 = new PlanoDeRefeicao("20", "gordin", 12, 200, 700);
-        PlanoDeRefeicao plano4 = new PlanoDeRefeicao("21", "hulk", 12, 450, 1500);
-
-        // adiciona os produtos na array
-        produto.add(produtos);
-        produto.add(produtos1);
-        produto.add(produtos2);
-        produto.add(produtos3);
-        produto.add(produtos4);
-        produto.add(produtos5);
-        produto.add(produtos6);
-        produto.add(produtos7);
-        produto.add(produtos8);
-        produto.add(produtos9);
-        produto.add(refeição);
-        produto.add(refeição1);
-        produto.add(refeição2);
-        produto.add(refeição3);
-        produto.add(refeição4);
-        produto.add(refeição5);
-        produto.add(refeição6);
-        produto.add(plano);
-        produto.add(plano1);
-        produto.add(plano2);
-        produto.add(plano3);
-        produto.add(plano4);
-
-        // fretes iniciais
-        Frete fretes = new Frete("loggi", 14, 25);
-        Frete fretes1 = new Frete("express", 10, 40);
-        Frete fretes2 = new Frete("correios", 12, 20);
-
-        // adiciona os fretes na array
-        frete.add(fretes);
-        frete.add(fretes1);
-        frete.add(fretes2);
 
         System.out.print("BEM VINDO A NOSSA PLATAFORMA");
 
@@ -83,9 +25,9 @@ public class Principal {
         while (true) {
             Scanner input = new Scanner(System.in);
             Scanner inputString = new Scanner(System.in);
-
+            //Variavel que recebe a opcao digitada
             int num;
-            // Instancia da classe MenuMain
+            //Instancia da classe MenuMain
             MenuMain menu = new MenuMain();
             try {
                 num = menu.MenuPrincipal();
@@ -102,15 +44,13 @@ public class Principal {
                 // switch para os casos de uso
                 switch (num) {
 
-                    // imprimir toda a lista de produtos e serviços disponiveis
                     case 1:
-                        for (IServico p : produto) {
-                            System.out.println(p);
+                        for (int i = 0; i < produto.size(); i++) {
+                            System.out.println(produto.get(i));
 
                         }
                         break;
 
-                    // ver item especifico pesquisando o id do produto
                     case 2:
                         int x;
                         try {
@@ -123,7 +63,6 @@ public class Principal {
 
                         break;
 
-                    // adicionar um tipo de frete
                     case 3:
                         try {
                             System.out.println("digite o nome da empresa: ");
@@ -142,15 +81,17 @@ public class Principal {
                         }
 
                         break;
-                    // ver lista completa de fretes disponiveis
+
                     case 4:
                         for (Frete f : frete) {
                             System.out.println(f);
 
                         }
                         break;
+                    case 5:
 
-                    // excluir frete com base no indice (lembre q se inicia no 0 e não no 1)
+                        break;
+
                     case 6:
                         int j;
                         try {
@@ -163,7 +104,6 @@ public class Principal {
                         }
                         break;
 
-                    // adicionar um anuncio de um produto de acordo com a categoria
                     case 7:
                         String n;
                         try {
@@ -228,7 +168,10 @@ public class Principal {
 
                         break;
 
-                    // remover um anuncio com base no id dele
+                    case 8:
+                        
+                        break;
+
                     case 9:
                         int i;
                         try {
@@ -241,6 +184,7 @@ public class Principal {
                         }
                         break;
 
+
                     default:
                         System.out.println("opção invalida");
 
@@ -250,6 +194,12 @@ public class Principal {
 
         }
 
+    }
+
+    @Override
+    public void Array() {
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
 }
