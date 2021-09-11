@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import controllers.usuarios.Usuario;
+
 public class MenusUsuarios {
 
     // Construtor
@@ -26,7 +28,7 @@ public class MenusUsuarios {
         System.out.println("\nSenha: ");
         senha = input.nextLine();
 
-        List<String> data = new ArrayList();
+        List<String> data = new ArrayList<String>();
 
         data.add(email);
         data.add(senha);
@@ -35,10 +37,12 @@ public class MenusUsuarios {
     }
 
     /**
-     * Método de cadastro. Retorna as informações de cadastro informadas pelo usuario
-     * @return [String nome, String sobrenome, String cpf, String cidade, String email, String senha]
+     * Método de cadastro. Retorna as informações de cadastro informadas pelo
+     * usuario
+     * 
+     * @return Object<Usuario>
      */
-    public List<String> cadastrarUsuario() {
+    public Usuario cadastrarUsuario() {
         String nome, sobrenome, cpf, cidade, email, senha;
 
         System.out.println("------------------ Cadastrar Usuário -------------------");
@@ -60,18 +64,8 @@ public class MenusUsuarios {
         System.out.println("\nSenha: ");
         senha = input.nextLine();
 
-        List<String> data = new ArrayList<>();
-
-        data.add(nome);
-        data.add(sobrenome);
-        data.add(cpf);
-        data.add(cidade);
-        data.add(email);
-        data.add(senha);
+        Usuario data = new Usuario(nome, sobrenome, cpf, cidade, email, senha);
 
         return data;
     }
-
-
-    
 }
