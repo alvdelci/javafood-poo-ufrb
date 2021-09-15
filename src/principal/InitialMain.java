@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import controllers.servicos.PlanoDeRefeicao;
-import controllers.servicos.Produtos;
+import controllers.servicos.ProdutoMercado;
 import controllers.servicos.Refeicao;
 import controllers.servicos.frete.Frete;
 import models.servicos.IServico;
@@ -30,7 +30,7 @@ public class InitialMain implements IServico {
             //Instancia da classe MenuMain
             MenuMain menu = new MenuMain();
             try {
-                num = menu.MenuPrincipal();
+                num = menu.exibirMenuPrincipal();
             } catch (Exception e) {
                 System.out.println("Caracter inserido não compatível!");
                 continue;
@@ -120,7 +120,7 @@ public class InitialMain implements IServico {
                                 System.out.println("digite o estoque: ");
                                 int estoque = input.nextInt();
 
-                                Produtos objProduto = new Produtos(codigo, nome, valor, estoque);
+                                ProdutoMercado objProduto = new ProdutoMercado(codigo, nome, valor, estoque);
 
                                 produto.add(objProduto);
 

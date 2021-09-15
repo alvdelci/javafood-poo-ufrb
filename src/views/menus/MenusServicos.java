@@ -3,7 +3,7 @@ package views.menus;
 import java.util.Scanner;
 
 import controllers.servicos.PlanoDeRefeicao;
-import controllers.servicos.Produtos;
+import controllers.servicos.ProdutoMercado;
 import controllers.servicos.Refeicao;
 
 public class MenusServicos {
@@ -36,7 +36,7 @@ public class MenusServicos {
      * 
      * @return Object<Produtos>
      */
-    public Produtos cadastrarProduto() {
+    public ProdutoMercado cadastrarProduto() {
         int estoque;
         double valor;
         String nome, codigo;
@@ -51,7 +51,7 @@ public class MenusServicos {
         System.out.println("\nQuantidade em Estoque: ");
         estoque = input.nextInt();
 
-        Produtos data = new Produtos(codigo, nome, valor, estoque);
+        ProdutoMercado data = new ProdutoMercado(codigo, nome, valor, estoque);
 
         return data;
     }

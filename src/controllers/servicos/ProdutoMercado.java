@@ -1,13 +1,13 @@
 
 package controllers.servicos;
 
-public class Produtos extends Serviços {
+public class ProdutoMercado extends Serviços {
 
 	private double valor;
 	private int estoque;
 
 	// cosntrutor
-	public Produtos(String codigo, String nome, double valor, int estoque) {
+	public ProdutoMercado(String codigo, String nome, double valor, int estoque) {
 
 		super(codigo, nome);
 
