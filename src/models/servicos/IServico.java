@@ -7,4 +7,4 @@ public interface IServico {
 
     public void Array();
 
-}
+} //inutil

@@ -14,7 +14,7 @@ public class MenuMain {
      * 
      * @return int opcao
      */
-    public int MenuPrincipal() {
+    public int exibirMenuPrincipal() {
 
         System.out.print("\n-------------------------------MENU------------------------------");
         System.out.println("\n\n[0] SAIR");

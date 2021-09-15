@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import controllers.servicos.PlanoDeRefeicao;
-import controllers.servicos.Produtos;
+import controllers.servicos.ProdutoMercado;
 import controllers.servicos.Refeicao;
+import controllers.servicos.Serviços;
 import controllers.servicos.frete.Frete;
 import models.servicos.IServico;
 import views.menus.MenuMain;
@@ -16,20 +17,20 @@ public class Principal {
     public static void main(String[] args) {
 
         // criar as arrays
-        ArrayList<IServico> produto = new ArrayList();
+        ArrayList<Serviços> produto = new ArrayList();
         ArrayList<Frete> frete = new ArrayList();
 
         // produtos iniciais
-        Produtos produtos = new Produtos("0", "paçoca", 2.70, 800);
-        Produtos produtos1 = new Produtos("1", "bolo", 5.00, 50);
-        Produtos produtos2 = new Produtos("2", "pizza brotinho", 2.50, 100);
-        Produtos produtos3 = new Produtos("3", "hamburguer", 20.00, 45);
-        Produtos produtos4 = new Produtos("4", "cerveja itaipava", 3.50, 400);
-        Produtos produtos5 = new Produtos("5", "cerveja devassa", 4.00, 200);
-        Produtos produtos6 = new Produtos("6", "guarana antartica", 5.70, 200);
-        Produtos produtos7 = new Produtos("7", "coca cola", 6.00, 300);
-        Produtos produtos8 = new Produtos("8", "fanta uva", 6.50, 300);
-        Produtos produtos9 = new Produtos("9", "fanta laranja", 6.50, 300);
+        ProdutoMercado produtos = new ProdutoMercado("0", "paçoca", 2.70, 800);
+        ProdutoMercado produtos1 = new ProdutoMercado("1", "bolo", 5.00, 50);
+        ProdutoMercado produtos2 = new ProdutoMercado("2", "pizza brotinho", 2.50, 100);
+        ProdutoMercado produtos3 = new ProdutoMercado("3", "hamburguer", 20.00, 45);
+        ProdutoMercado produtos4 = new ProdutoMercado("4", "cerveja itaipava", 3.50, 400);
+        ProdutoMercado produtos5 = new ProdutoMercado("5", "cerveja devassa", 4.00, 200);
+        ProdutoMercado produtos6 = new ProdutoMercado("6", "guarana antartica", 5.70, 200);
+        ProdutoMercado produtos7 = new ProdutoMercado("7", "coca cola", 6.00, 300);
+        ProdutoMercado produtos8 = new ProdutoMercado("8", "fanta uva", 6.50, 300);
+        ProdutoMercado produtos9 = new ProdutoMercado("9", "fanta laranja", 6.50, 300);
         Refeicao refeição = new Refeicao("10", "bife acebolado", "refrigerante", "farofa", 25.00);
         Refeicao refeição1 = new Refeicao("11", "lasanha", "refrigerante", "ketchup", 20.00);
         Refeicao refeição2 = new Refeicao("12", "frango a parmegiana", "cerveja", "farofa", 25.00);
@@ -88,7 +89,7 @@ public class Principal {
             // Instancia da classe MenuMain
             MenuMain menu = new MenuMain();
             try {
-                num = menu.MenuPrincipal();
+                num = menu.exibirMenuPrincipal();
             } catch (Exception e) {
                 System.out.println("Caracter inserido não compatível!");
                 continue;
@@ -180,7 +181,7 @@ public class Principal {
                                 System.out.println("digite o estoque: ");
                                 int estoque = input.nextInt();
 
-                                Produtos objProduto = new Produtos(codigo, nome, valor, estoque);
+                                ProdutoMercado objProduto = new ProdutoMercado(codigo, nome, valor, estoque);
 
                                 produto.add(objProduto);
 
