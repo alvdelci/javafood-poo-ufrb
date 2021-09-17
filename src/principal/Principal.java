@@ -7,9 +7,8 @@ import java.util.Scanner;
 import controllers.servicos.PlanoDeRefeicao;
 import controllers.servicos.ProdutoMercado;
 import controllers.servicos.Refeicao;
-import controllers.servicos.Serviços;
+import controllers.servicos.Servico;
 import controllers.servicos.frete.Frete;
-import models.servicos.IServico;
 import views.menus.MenuMain;
 
 public class Principal {
@@ -17,20 +16,20 @@ public class Principal {
     public static void main(String[] args) {
 
         // criar as arrays
-        ArrayList<Serviços> produto = new ArrayList();
-        ArrayList<Frete> frete = new ArrayList();
+        ArrayList<Servico> produto = new ArrayList<Servico>();
+        ArrayList<Frete> frete = new ArrayList<Frete>();
 
         // produtos iniciais
-        ProdutoMercado produtos = new ProdutoMercado("0", "paçoca", 2.70, 800);
-        ProdutoMercado produtos1 = new ProdutoMercado("1", "bolo", 5.00, 50);
-        ProdutoMercado produtos2 = new ProdutoMercado("2", "pizza brotinho", 2.50, 100);
-        ProdutoMercado produtos3 = new ProdutoMercado("3", "hamburguer", 20.00, 45);
-        ProdutoMercado produtos4 = new ProdutoMercado("4", "cerveja itaipava", 3.50, 400);
-        ProdutoMercado produtos5 = new ProdutoMercado("5", "cerveja devassa", 4.00, 200);
-        ProdutoMercado produtos6 = new ProdutoMercado("6", "guarana antartica", 5.70, 200);
-        ProdutoMercado produtos7 = new ProdutoMercado("7", "coca cola", 6.00, 300);
-        ProdutoMercado produtos8 = new ProdutoMercado("8", "fanta uva", 6.50, 300);
-        ProdutoMercado produtos9 = new ProdutoMercado("9", "fanta laranja", 6.50, 300);
+        // ProdutoMercado produtos = new ProdutoMercado("0", "paçoca", 2.70, 800);
+        // ProdutoMercado produtos1 = new ProdutoMercado("1", "bolo", 5.00, 50);
+        // ProdutoMercado produtos2 = new ProdutoMercado("2", "pizza brotinho", 2.50, 100);
+        // ProdutoMercado produtos3 = new ProdutoMercado("3", "hamburguer", 20.00, 45);
+        // ProdutoMercado produtos4 = new ProdutoMercado("4", "cerveja itaipava", 3.50, 400);
+        // ProdutoMercado produtos5 = new ProdutoMercado("5", "cerveja devassa", 4.00, 200);
+        // ProdutoMercado produtos6 = new ProdutoMercado("6", "guarana antartica", 5.70, 200);
+        // ProdutoMercado produtos7 = new ProdutoMercado("7", "coca cola", 6.00, 300);
+        // ProdutoMercado produtos8 = new ProdutoMercado("8", "fanta uva", 6.50, 300);
+        // ProdutoMercado produtos9 = new ProdutoMercado("9", "fanta laranja", 6.50, 300);
         Refeicao refeição = new Refeicao("10", "bife acebolado", "refrigerante", "farofa", 25.00);
         Refeicao refeição1 = new Refeicao("11", "lasanha", "refrigerante", "ketchup", 20.00);
         Refeicao refeição2 = new Refeicao("12", "frango a parmegiana", "cerveja", "farofa", 25.00);
@@ -45,16 +44,16 @@ public class Principal {
         PlanoDeRefeicao plano4 = new PlanoDeRefeicao("21", "hulk", 12, 450, 1500);
 
         // adiciona os produtos na array
-        produto.add(produtos);
-        produto.add(produtos1);
-        produto.add(produtos2);
-        produto.add(produtos3);
-        produto.add(produtos4);
-        produto.add(produtos5);
-        produto.add(produtos6);
-        produto.add(produtos7);
-        produto.add(produtos8);
-        produto.add(produtos9);
+        // produto.add(produtos);
+        // produto.add(produtos1);
+        // produto.add(produtos2);
+        // produto.add(produtos3);
+        // produto.add(produtos4);
+        // produto.add(produtos5);
+        // produto.add(produtos6);
+        // produto.add(produtos7);
+        // produto.add(produtos8);
+        // produto.add(produtos9);
         produto.add(refeição);
         produto.add(refeição1);
         produto.add(refeição2);
@@ -78,12 +77,13 @@ public class Principal {
         frete.add(fretes1);
         frete.add(fretes2);
 
+        Scanner input = new Scanner(System.in);
+        Scanner inputString = new Scanner(System.in);
+
         System.out.print("BEM VINDO A NOSSA PLATAFORMA");
 
         // loop do Menu
         while (true) {
-            Scanner input = new Scanner(System.in);
-            Scanner inputString = new Scanner(System.in);
 
             int num;
             // Instancia da classe MenuMain
@@ -105,7 +105,7 @@ public class Principal {
 
                     // imprimir toda a lista de produtos e serviços disponiveis
                     case 1:
-                        for (IServico p : produto) {
+                        for (Servico p : produto) {
                             System.out.println(p);
 
                         }
@@ -250,7 +250,8 @@ public class Principal {
             }
 
         }
-
+        input.close();
+        inputString.close();
     }
 
 }

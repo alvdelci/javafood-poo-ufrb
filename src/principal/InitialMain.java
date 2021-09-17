@@ -2,32 +2,31 @@
 package principal;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import controllers.servicos.PlanoDeRefeicao;
 import controllers.servicos.ProdutoMercado;
 import controllers.servicos.Refeicao;
+import controllers.servicos.Servico;
 import controllers.servicos.frete.Frete;
-import models.servicos.IServico;
 import views.menus.MenuMain;
-import views.menus.MenusUsuarios;
 
-public class InitialMain implements IServico {
+public class InitialMain {
     public static void main(String[] args) {
 
-        ArrayList<IServico> produto = new ArrayList();
-        ArrayList<Frete> frete = new ArrayList();
+        ArrayList<Servico> produto = new ArrayList<Servico>();
+        ArrayList<Frete> frete = new ArrayList<Frete>();
+
+        Scanner input = new Scanner(System.in);
+        Scanner inputString = new Scanner(System.in);
 
         System.out.print("BEM VINDO A NOSSA PLATAFORMA");
 
         // loop do Menu
         while (true) {
-            Scanner input = new Scanner(System.in);
-            Scanner inputString = new Scanner(System.in);
-            //Variavel que recebe a opcao digitada
+            // Variavel que recebe a opcao digitada
             int num;
-            //Instancia da classe MenuMain
+            // Instancia da classe MenuMain
             MenuMain menu = new MenuMain();
             try {
                 num = menu.exibirMenuPrincipal();
@@ -169,7 +168,7 @@ public class InitialMain implements IServico {
                         break;
 
                     case 8:
-                        
+
                         break;
 
                     case 9:
@@ -184,7 +183,6 @@ public class InitialMain implements IServico {
                         }
                         break;
 
-
                     default:
                         System.out.println("opção invalida");
 
@@ -193,13 +191,8 @@ public class InitialMain implements IServico {
             }
 
         }
-
-    }
-
-    @Override
-    public void Array() {
-        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-                                                                       // Tools | Templates.
+        input.close();
+        inputString.close();
     }
 
 }
