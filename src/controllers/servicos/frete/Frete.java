@@ -1,8 +1,6 @@
 package controllers.servicos.frete;
 
-import models.servicos.IServico;
-
-public class Frete implements IServico {
+public class Frete {
     private String empresa;
     private int prazo;
     private double valorMinimo;
@@ -52,11 +50,6 @@ public class Frete implements IServico {
     public String toString() {
         return String.format("%s:%s / %s: %s dias / %s: R$%,.2f", "empresa", getEmpresa(), "prazo", getPrazo(),
                 "valor minimo", getValorMinimo());
-    }
-
-    @Override
-    public void Array() {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }

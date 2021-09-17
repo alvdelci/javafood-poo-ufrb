@@ -1,23 +1,20 @@
 package controllers.servicos;
 
-public class Refeicao extends Serviços {
+public class Refeicao extends Servico {
 
     private String bebida;
     private String acompanhamento;
 
-    private double valor;
-
     // construtor
     public Refeicao(String codigo, String nome, String bebida, String acompanhamento, double valor) {
 
-        super(codigo, nome);
+        super(codigo, nome, valor);
 
         if (valor <= 0.0)
             throw new IllegalArgumentException("Valor must be > 0.0");
 
         this.bebida = bebida;
         this.acompanhamento = acompanhamento;
-        this.valor = valor;
     }
 
     // gets e sets
@@ -35,14 +32,6 @@ public class Refeicao extends Serviços {
 
     public void setAcompanhamento(String acompanhamento) {
         this.acompanhamento = acompanhamento;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
     }
 
     // formatação
