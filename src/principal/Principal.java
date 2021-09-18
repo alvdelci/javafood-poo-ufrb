@@ -6,66 +6,32 @@ import java.util.Scanner;
 
 import controllers.servicos.PlanoDeRefeicao;
 import controllers.servicos.ProdutoMercado;
-import controllers.servicos.Refeicao;
-import controllers.servicos.Servico;
+import database.servicos.DBPlanoDeRefeicao;
+import database.servicos.DBProdutoMercado;
 import controllers.servicos.frete.Frete;
+import controllers.servicos.Refeicao;
+import database.servicos.DBRefeicao;
 import views.menus.MenuMain;
 
 public class Principal {
 
     public static void main(String[] args) {
 
-        // criar as arrays
-        ArrayList<Servico> produto = new ArrayList<Servico>();
+        // Instância de DBProdutoMercado
+        DBProdutoMercado modelProdutoMercado = new DBProdutoMercado();
+        // Instância de DBRefeicao
+        DBRefeicao modelRefeicao = new DBRefeicao();
+        // Instância de DBPlanoDeRefeicao
+        DBPlanoDeRefeicao modelPanoDeRefeicao = new DBPlanoDeRefeicao();
+
+        // Array de objectos do tipo ProdutoMercado
+        ArrayList<ProdutoMercado> produtoMercado = modelProdutoMercado.returnProdutoMercado();
+        // Array de objetos do tipo Refeicao
+        ArrayList<Refeicao> refeicao = modelRefeicao.returnRefeicao();
+        // Array de objectos do tipo PlanoDeRefeicao
+        ArrayList<PlanoDeRefeicao> planoDeRefeicao = modelPanoDeRefeicao.returnPlanoDeRefeicao();
+
         ArrayList<Frete> frete = new ArrayList<Frete>();
-
-        // produtos iniciais
-        // ProdutoMercado produtos = new ProdutoMercado("0", "paçoca", 2.70, 800);
-        // ProdutoMercado produtos1 = new ProdutoMercado("1", "bolo", 5.00, 50);
-        // ProdutoMercado produtos2 = new ProdutoMercado("2", "pizza brotinho", 2.50, 100);
-        // ProdutoMercado produtos3 = new ProdutoMercado("3", "hamburguer", 20.00, 45);
-        // ProdutoMercado produtos4 = new ProdutoMercado("4", "cerveja itaipava", 3.50, 400);
-        // ProdutoMercado produtos5 = new ProdutoMercado("5", "cerveja devassa", 4.00, 200);
-        // ProdutoMercado produtos6 = new ProdutoMercado("6", "guarana antartica", 5.70, 200);
-        // ProdutoMercado produtos7 = new ProdutoMercado("7", "coca cola", 6.00, 300);
-        // ProdutoMercado produtos8 = new ProdutoMercado("8", "fanta uva", 6.50, 300);
-        // ProdutoMercado produtos9 = new ProdutoMercado("9", "fanta laranja", 6.50, 300);
-        Refeicao refeição = new Refeicao("10", "bife acebolado", "refrigerante", "farofa", 25.00);
-        Refeicao refeição1 = new Refeicao("11", "lasanha", "refrigerante", "ketchup", 20.00);
-        Refeicao refeição2 = new Refeicao("12", "frango a parmegiana", "cerveja", "farofa", 25.00);
-        Refeicao refeição3 = new Refeicao("13", "carne de sol", "cerveja", "batata frita", 20.00);
-        Refeicao refeição4 = new Refeicao("14", "frango grelhado", "refrigerante", "farofa", 15.00);
-        Refeicao refeição5 = new Refeicao("15", "peixe frito", "cerveja", "farofa", 15.00);
-        Refeicao refeição6 = new Refeicao("16", "porção de batata frita", "refrigerante", "ketchup", 10.00);
-        PlanoDeRefeicao plano = new PlanoDeRefeicao("17", "gordo", 12, 300, 1000);
-        PlanoDeRefeicao plano1 = new PlanoDeRefeicao("18", "magro", 12, 150, 500);
-        PlanoDeRefeicao plano2 = new PlanoDeRefeicao("19", "medio", 12, 170, 600);
-        PlanoDeRefeicao plano3 = new PlanoDeRefeicao("20", "gordin", 12, 200, 700);
-        PlanoDeRefeicao plano4 = new PlanoDeRefeicao("21", "hulk", 12, 450, 1500);
-
-        // adiciona os produtos na array
-        // produto.add(produtos);
-        // produto.add(produtos1);
-        // produto.add(produtos2);
-        // produto.add(produtos3);
-        // produto.add(produtos4);
-        // produto.add(produtos5);
-        // produto.add(produtos6);
-        // produto.add(produtos7);
-        // produto.add(produtos8);
-        // produto.add(produtos9);
-        produto.add(refeição);
-        produto.add(refeição1);
-        produto.add(refeição2);
-        produto.add(refeição3);
-        produto.add(refeição4);
-        produto.add(refeição5);
-        produto.add(refeição6);
-        produto.add(plano);
-        produto.add(plano1);
-        produto.add(plano2);
-        produto.add(plano3);
-        produto.add(plano4);
 
         // fretes iniciais
         Frete fretes = new Frete("loggi", 14, 25);
@@ -105,9 +71,20 @@ public class Principal {
 
                     // imprimir toda a lista de produtos e serviços disponiveis
                     case 1:
-                        for (Servico p : produto) {
-                            System.out.println(p);
 
+                        // Imprime todos os produtos de mercado cadastrados
+                        for (ProdutoMercado element : produtoMercado) {
+                            System.out.println(element.toString());
+                        }
+
+                        // Imprime todas as refeicoes cadastradas
+                        for (Refeicao element : refeicao) {
+                            System.out.println(element.toString());
+                        }
+
+                        // Imprime todos os planos de refeicao cadastrados
+                        for (PlanoDeRefeicao element : planoDeRefeicao) {
+                            System.out.println(element.toString());
                         }
                         break;
 
@@ -117,7 +94,7 @@ public class Principal {
                         try {
                             System.out.printf("qual o id do produto que vc quer ver: ");
                             x = input.nextInt();
-                            System.out.println(produto.get(x));
+                            System.out.println(produtoMercado.get(x));
                         } catch (Exception e) {
                             System.out.println("Caracter inserido não compatível!");
                         }
@@ -183,7 +160,7 @@ public class Principal {
 
                                 ProdutoMercado objProduto = new ProdutoMercado(codigo, nome, valor, estoque);
 
-                                produto.add(objProduto);
+                                produtoMercado.add(objProduto);
 
                             }
                             if ("refeicao".equals(n)) {
@@ -200,7 +177,7 @@ public class Principal {
 
                                 Refeicao objRefeição = new Refeicao(codigo, nome, bebida, acompanhamento, valor);
 
-                                produto.add(objRefeição);
+                                refeicao.add(objRefeição);
 
                             }
                             if ("plano de refeicao".equals(n)) {
@@ -218,7 +195,7 @@ public class Principal {
                                 PlanoDeRefeicao objPlanoDeRefeição = new PlanoDeRefeicao(codigo, nome, duração,
                                         marmitex, valor);
 
-                                produto.add(objPlanoDeRefeição);
+                                planoDeRefeicao.add(objPlanoDeRefeição);
 
                             }
 
@@ -230,17 +207,17 @@ public class Principal {
                         break;
 
                     // remover um anuncio com base no id dele
-                    case 9:
-                        int i;
-                        try {
-                            System.out.printf("digite o id do produto a ser excluido: ");
-                            i = input.nextInt();
-                            produto.remove(i);
-                        } catch (Exception e) {
-                            System.out.println("Caracter inserido não compatível!");
+                    // case 9:
+                    // int i;
+                    // try {
+                    // System.out.printf("digite o id do produto a ser excluido: ");
+                    // i = input.nextInt();
+                    // produto.remove(i);
+                    // } catch (Exception e) {
+                    // System.out.println("Caracter inserido não compatível!");
 
-                        }
-                        break;
+                    // }
+                    // break;
 
                     default:
                         System.out.println("opção invalida");
