@@ -24,11 +24,7 @@ public class DBProdutoMercado extends DBServico {
 
     // Construtor sem argumentos, apenas para criação de objetos
     public DBProdutoMercado() {
-    }
-
-    // Construtor de 1 argumento
-    public DBProdutoMercado(ProdutoMercado produto) {
-        adicionarProduto(produto);
+    	adicionarProduto(produto);
         adicionarProduto(produto1);
         adicionarProduto(produto2);
         adicionarProduto(produto3);
@@ -40,6 +36,21 @@ public class DBProdutoMercado extends DBServico {
         adicionarProduto(produto9);
     }
 
+    // Construtor de 1 argumento
+    public DBProdutoMercado(ProdutoMercado produto) {
+       /*adicionarProduto(produto);
+        adicionarProduto(produto1);
+        adicionarProduto(produto2);
+        adicionarProduto(produto3);
+        adicionarProduto(produto4);
+        adicionarProduto(produto5);
+        adicionarProduto(produto6);
+        adicionarProduto(produto7);
+        adicionarProduto(produto8);
+        adicionarProduto(produto9);*/
+    }
+
+   
     // Recebe um objeto do tipo ProdutoMercado e adiciona à lista de Produtos
     public void adicionarProduto(ProdutoMercado produto) {
         produtoList.add(produto);

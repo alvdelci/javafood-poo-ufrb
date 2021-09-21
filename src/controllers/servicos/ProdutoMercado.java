@@ -28,12 +28,18 @@ public class ProdutoMercado extends Servico {
 	public void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
-
-	// formatação
+	
 	@Override
 	public String toString() {
-		return String.format("%s / %s: R$%,.2f / %s: %s", super.toString(), "valor", getValor(), "estoque",
-				getEstoque());
+		// TODO Auto-generated method stub
+		return super.toString();
 	}
+
+	// formatação
+	/*@Override
+	public String toString() {
+		return String.format("%s / %s:  / %s: %s", super.toString(), "valor", getValor(), "estoque",
+				//getEstoque());
+	}*/
 
 }
