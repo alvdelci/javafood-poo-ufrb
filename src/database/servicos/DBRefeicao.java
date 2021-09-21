@@ -38,16 +38,7 @@ public class DBRefeicao extends DBServico {
 
     // Construtor de 1 argumento
     public DBRefeicao(Refeicao refeicao) {
-       /* adicionarRefeicao(refeicao);
-        adicionarRefeicao(refeicao1);
-        adicionarRefeicao(refeicao2);
-        adicionarRefeicao(refeicao3);
-        adicionarRefeicao(refeicao4);
-        adicionarRefeicao(refeicao5);
-        adicionarRefeicao(refeicao6);
-        adicionarRefeicao(refeicao7);
-        adicionarRefeicao(refeicao8);
-        adicionarRefeicao(refeicao9);*/
+       
     }
 
     // Recebe um objeto do tipo Refeicao e adiciona à lista de refeicaos
