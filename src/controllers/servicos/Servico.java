@@ -38,10 +38,11 @@ public class Servico {
         this.nome = nome;
     }
 
+    
     // formatação
     @Override
     public String toString() {
-        return String.format("%s: %s / %s: %s", "id", getCodigo(), "nome", getNome());
+        return String.format("%s: %s / %s: %s %s : %s\n", "id", getCodigo(), "nome", getNome(), "valor",getValor());
     }
 
 }

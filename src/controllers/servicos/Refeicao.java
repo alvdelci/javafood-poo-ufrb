@@ -35,10 +35,10 @@ public class Refeicao extends Servico {
     }
 
     // formatação
-    @Override
+   /* @Override
     public String toString() {
-        return String.format("%s / %s: %s /%s: %s / %s: R$%,.2f", super.toString(), "bebida", getBebida(), "acompanha",
+        return String.format("%s / %s: %s /%s: %s / %s: ", super.toString(), "bebida", getBebida(), "acompanha",
                 getAcompanhamento(), "valor", getValor());
-    }
+    }*/
 
 }

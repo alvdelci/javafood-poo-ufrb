@@ -38,11 +38,10 @@ public class PlanoDeRefeicao extends Servico {
         this.marmitex = marmitex;
     }
 
-    // formatação
     @Override
     public String toString() {
-        return String.format("%s / %s: %s meses/%s: %s marmitas / %s: R$%,.2f", super.toString(), "dura", getduracao(),
-                "quantidade", getMarmitex(), "valor", getValor());
+    	
+    	return super.toString();
     }
 
 }

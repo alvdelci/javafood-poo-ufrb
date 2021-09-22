@@ -29,8 +29,10 @@ public class Principal {
         // Array de objetos do tipo Refeicao
         ArrayList<Refeicao> refeicao = modelRefeicao.returnRefeicao();
         // Array de objectos do tipo PlanoDeRefeicao
+     
         ArrayList<PlanoDeRefeicao> planoDeRefeicao = modelPanoDeRefeicao.returnPlanoDeRefeicao();
-
+        
+        
         ArrayList<Frete> frete = new ArrayList<Frete>();
 
         // fretes iniciais

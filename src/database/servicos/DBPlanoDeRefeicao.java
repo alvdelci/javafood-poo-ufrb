@@ -22,11 +22,7 @@ public class DBPlanoDeRefeicao extends DBServico {
 
     // Construtor sem argumentos, apenas para criação de objetos
     public DBPlanoDeRefeicao() {
-    }
-
-    // Construtor de 1 argumento
-    public DBPlanoDeRefeicao(PlanoDeRefeicao planoDeRefeicao) {
-        adicionarPlanoDeRefeicao(plano);
+    	adicionarPlanoDeRefeicao(plano);
         adicionarPlanoDeRefeicao(plano1);
         adicionarPlanoDeRefeicao(plano2);
         adicionarPlanoDeRefeicao(plano3);
@@ -36,6 +32,20 @@ public class DBPlanoDeRefeicao extends DBServico {
         adicionarPlanoDeRefeicao(plano7);
         adicionarPlanoDeRefeicao(plano8);
         adicionarPlanoDeRefeicao(plano9);
+    }
+
+    // Construtor de 1 argumento
+    public DBPlanoDeRefeicao(PlanoDeRefeicao planoDeRefeicao) {
+        /*adicionarPlanoDeRefeicao(plano);
+        adicionarPlanoDeRefeicao(plano1);
+        adicionarPlanoDeRefeicao(plano2);
+        adicionarPlanoDeRefeicao(plano3);
+        adicionarPlanoDeRefeicao(plano4);
+        adicionarPlanoDeRefeicao(plano5);
+        adicionarPlanoDeRefeicao(plano6);
+        adicionarPlanoDeRefeicao(plano7);
+        adicionarPlanoDeRefeicao(plano8);
+        adicionarPlanoDeRefeicao(plano9);*/
     }
 
     // Recebe um objeto do tipo PlanoDeRefeicao e adiciona à lista de
