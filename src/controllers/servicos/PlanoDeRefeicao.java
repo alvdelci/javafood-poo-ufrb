@@ -40,8 +40,8 @@ public class PlanoDeRefeicao extends Servico {
 
     @Override
     public String toString() {
-    	
-    	return super.toString();
+
+        return super.toString();
     }
 
 }

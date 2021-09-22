@@ -42,7 +42,7 @@ public class Servico {
     // formatação
     @Override
     public String toString() {
-        return String.format("%s: %s / %s: %s %s : %s\n", "id", getCodigo(), "nome", getNome(), "valor",getValor());
+        return String.format("%s: %s | %s: %s %s : %s  \n", "id", getCodigo(), "nome", getNome(), "| valor",getValor() + " | " + getClass().getName());
     }
 
 }
