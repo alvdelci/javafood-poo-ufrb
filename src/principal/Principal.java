@@ -11,6 +11,8 @@ import database.servicos.DBProdutoMercado;
 import controllers.servicos.frete.Frete;
 import controllers.servicos.Refeicao;
 import database.servicos.DBRefeicao;
+import database.servicos.frete.DBFrete;
+import views.menus.MenuFrete;
 import views.menus.MenuMain;
 
 public class Principal {
@@ -23,32 +25,22 @@ public class Principal {
         DBRefeicao modelRefeicao = new DBRefeicao();
         // Instância de DBPlanoDeRefeicao
         DBPlanoDeRefeicao modelPanoDeRefeicao = new DBPlanoDeRefeicao();
+        // Instância de DBFrete
+        DBFrete modelFrete = new DBFrete();
 
         // Array de objectos do tipo ProdutoMercado
         ArrayList<ProdutoMercado> produtoMercado = modelProdutoMercado.returnProdutoMercado();
         // Array de objetos do tipo Refeicao
         ArrayList<Refeicao> refeicao = modelRefeicao.returnRefeicao();
         // Array de objectos do tipo PlanoDeRefeicao
-     
         ArrayList<PlanoDeRefeicao> planoDeRefeicao = modelPanoDeRefeicao.returnPlanoDeRefeicao();
-        
-        
-        ArrayList<Frete> frete = new ArrayList<Frete>();
-
-        // fretes iniciais
-        Frete fretes = new Frete("loggi", 14, 25);
-        Frete fretes1 = new Frete("express", 10, 40);
-        Frete fretes2 = new Frete("correios", 12, 20);
-
-        // adiciona os fretes na array
-        frete.add(fretes);
-        frete.add(fretes1);
-        frete.add(fretes2);
+        // Array de objetos do tipo Frete
+        ArrayList<Frete> frete = modelFrete.returnFretes();
 
         Scanner input = new Scanner(System.in);
         Scanner inputString = new Scanner(System.in);
 
-        System.out.print("BEM VINDO A NOSSA PLATAFORMA");
+        System.out.print("-----------------BEM VINDO A NOSSA PLATAFORMA--------------");
 
         // loop do Menu
         while (true) {
@@ -103,30 +95,24 @@ public class Principal {
 
                         break;
 
-                    // adicionar um tipo de frete
+                    // Adicionar Frete
                     case 3:
                         try {
-                            System.out.println("digite o nome da empresa: ");
-                            String empresa = inputString.nextLine();
-                            System.out.println("digite o prazo: ");
-                            int prazo = input.nextInt();
-                            System.out.println("digite o valor minimo: ");
-                            double valorMinimo = input.nextDouble();
+                            // Instância de
+                            MenuFrete freteMenu = new MenuFrete();
 
-                            Frete objFrete = new Frete(empresa, prazo, valorMinimo);
+                            // Adiciona o frete retornado pelo método de menu à lista de fretes
+                            frete.add(freteMenu.cadastrarFrete());
 
-                            frete.add(objFrete);
                         } catch (Exception e) {
                             System.out.println("Digitou algo errado, tente novamente!");
-
                         }
 
                         break;
-                    // ver lista completa de fretes disponiveis
+                    // Ver lista completa de fretes disponiveis
                     case 4:
-                        for (Frete f : frete) {
-                            System.out.println(f);
-
+                        for (Frete element : frete) {
+                            System.out.println(element.toString());
                         }
                         break;
 
