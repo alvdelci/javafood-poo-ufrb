@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import controllers.servicos.ProdutoMercado;
 
 public class DBProdutoMercado extends DBServico {
-    
+
     // ArrayList armazena todos os ProdutoMercado cadastrados
     private ArrayList<ProdutoMercado> produtoList = new ArrayList<ProdutoMercado>();
 
@@ -21,10 +21,9 @@ public class DBProdutoMercado extends DBServico {
     ProdutoMercado produto8 = new ProdutoMercado("8", "fanta uva", 6.50, 300);
     ProdutoMercado produto9 = new ProdutoMercado("9", "fanta laranja", 6.50, 300);
 
-
     // Construtor sem argumentos, apenas para criação de objetos
     public DBProdutoMercado() {
-    	adicionarProduto(produto);
+        adicionarProduto(produto);
         adicionarProduto(produto1);
         adicionarProduto(produto2);
         adicionarProduto(produto3);
@@ -36,21 +35,6 @@ public class DBProdutoMercado extends DBServico {
         adicionarProduto(produto9);
     }
 
-    // Construtor de 1 argumento
-    public DBProdutoMercado(ProdutoMercado produto) {
-       /*adicionarProduto(produto);
-        adicionarProduto(produto1);
-        adicionarProduto(produto2);
-        adicionarProduto(produto3);
-        adicionarProduto(produto4);
-        adicionarProduto(produto5);
-        adicionarProduto(produto6);
-        adicionarProduto(produto7);
-        adicionarProduto(produto8);
-        adicionarProduto(produto9);*/
-    }
-
-   
     // Recebe um objeto do tipo ProdutoMercado e adiciona à lista de Produtos
     public void adicionarProduto(ProdutoMercado produto) {
         produtoList.add(produto);
