@@ -71,9 +71,9 @@ public class InitialMain {
                             System.out.println("digite o valor minimo: ");
                             double valorMinimo = input.nextDouble();
 
-                            Frete objFrete = new Frete(empresa, prazo, valorMinimo);
+                            //Frete objFrete = new Frete(empresa, prazo, valorMinimo);
 
-                            frete.add(objFrete);
+                            //frete.add(objFrete);
                         } catch (Exception e) {
                             System.out.println("Digitou algo errado, tente novamente!");
 
