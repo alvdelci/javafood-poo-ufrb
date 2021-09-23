@@ -1,54 +1,42 @@
 package controllers.usuarios;
 
-/*import java.util.Scanner;
+import java.util.ArrayList;
 
-import views.menus.MenuFrete;
-import views.menus.MenusUsuarios;
+import database.usuario.DBUsuario;
 
 public class LoginUsuario {
-	
-	private Scanner entrada = new Scanner(System.in);
 
-	public void exibirTelaUsuario(Usuario uAtual) {
-		MenuFrete mF = new MenuFrete();
-		MenusUsuarios mU= new MenusUsuarios();
-		int opcao;
-		do {
-			System.out.println("------------Menu Usuario: "+uAtual.getNome()+"-------------");
-			System.out.println("Digite 1 para ir ao menu de anuncio:");
-			System.out.println("Digite 2 para comprar:");
-			System.out.println("Digite 3 para ver lista de compras efetuadas:");
-			System.out.println("Digite -1 para sair:");
-			opcao = entrada.nextInt();
-			switch (opcao) {
-			case 1:
-				System.out.println();
-				mF.menuAnuncio(uAtual);
-				break;
-			case 2:
-				mU.exibirMenuCompra(uAtual);
-				break;
-			case 3:
-				if(MenuFrete.getListCompra()==null) {
-					System.out.println("Nenhuma compra efetuada!!!");
-				}else {
-					for (MenuFrete a: MenuFrete.this.cadastrarFrete()) {
-						System.out.println(a.getProdutoAnunciado().descricaoProduto());
-						System.out.println();
-						}	
-				}
-				
-				break;
-			case -1:
-				System.out.println("Saindo...");
-			default:
-				System.out.println("Digite um valor valido");
-				break;
-			}
+	public LoginUsuario() {
 
-		} while (opcao != -1);
 	}
-	
-	
-}*/
 
+	// Instância de DBUsuario
+	DBUsuario bodyUsuario = new DBUsuario();
+	// Lista recebe todos os usuarios cadastrados no sistema
+	ArrayList<Usuario> listaDeUsuarios = bodyUsuario.returnUsuario();
+
+	/**
+	 * Método percorre o array de usuários cadastrados e verifica se os dados
+	 * informados pelo usuario existes no banco de dados do sistema
+	 * 
+	 * @param inEmail
+	 * @param inSenha
+	 * @return Boolean
+	 */
+	public boolean authentication(String inEmail, String inSenha) {
+
+		String email, senha;
+		email = inEmail;
+		senha = inSenha;
+
+		boolean verification = false;
+		for (Usuario element: listaDeUsuarios) {
+			System.out.println(element.getEmail() + " | " + element.getSenha());
+			if (element.getEmail() == email && element.getSenha() == senha) {
+				System.out.println("Entrou na condicional!");
+				verification = true;
+			}
+		}
+		return verification;
+	}
+}
