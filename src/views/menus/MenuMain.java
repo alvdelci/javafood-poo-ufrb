@@ -10,6 +10,23 @@ public class MenuMain {
     Scanner input = new Scanner(System.in);
 
     /**
+     * Menu inicial do sistema. Exibe formulario para seleção de cadastro ou login
+     * 
+     * @return int opcao
+     */
+    public int exibirMenuInicial() {
+        int opcao;
+
+        System.out.println("------------------------------- JavaFood ----------------------------------");
+        System.out.println("\n0 - Sair\n");
+        System.out.println("\n1 - Login\n");
+        System.out.println("\n2 - Cadastrar-se\n");
+        opcao = input.nextInt();
+
+        return opcao;
+    }
+
+    /**
      * Retorna a opção do menu digitada pelo usuario
      * 
      * @return int opcao
