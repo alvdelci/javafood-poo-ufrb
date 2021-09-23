@@ -19,7 +19,7 @@ public class MenusUsuarios {
      * 
      * @return [String email, String senha]
      */
-    public List<String> login() {
+    public ArrayList<String> login() {
         String email, senha;
 
         System.out.println("--------------------Login-----------------------------");
@@ -28,7 +28,7 @@ public class MenusUsuarios {
         System.out.println("\nSenha: ");
         senha = input.nextLine();
 
-        List<String> data = new ArrayList<String>();
+        ArrayList<String> data = new ArrayList<String>();
 
         data.add(email);
         data.add(senha);
