@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import controllers.servicos.frete.Frete;
 
+
+
 public class MenuFrete {
 
     public MenuFrete() {
@@ -35,5 +37,8 @@ public class MenuFrete {
         Frete data = new Frete(codigo, empresa, prazo, valorMinimo);
 
         return data;
+       
+    
+
     }
 }

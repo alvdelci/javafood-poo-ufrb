@@ -40,6 +40,17 @@ public class DBProdutoMercado extends DBServico {
         produtoList.add(produto);
     }
 
+    public void removerProduto(ProdutoMercado produtoR){
+        produtoList.remove(produtoR);
+    }
+
+    public void editarProduto(ProdutoMercado produto){
+        for(ProdutoMercado element: produtoList){
+            
+            produto.getCodigo();
+        }
+    }
+
     // Retorna todos os produtos cadastrados no array de produtos
     public ArrayList<ProdutoMercado> returnProdutoMercado() {
         return produtoList;

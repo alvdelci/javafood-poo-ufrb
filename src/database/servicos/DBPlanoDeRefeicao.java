@@ -40,6 +40,10 @@ public class DBPlanoDeRefeicao extends DBServico {
         planoDeRefeicaoList.add(planoDeRefeicao);
     }
 
+    public void removerPlanoDeRefeicao(PlanoDeRefeicao pRemovido){
+        planoDeRefeicaoList.remove(pRemovido);
+    }
+
     // Retorna todos os planoDeRefeicaos cadastrados no array de planoDeRefeicaos
     public ArrayList<PlanoDeRefeicao> returnPlanoDeRefeicao() {
         return planoDeRefeicaoList;
