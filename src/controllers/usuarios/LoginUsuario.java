@@ -28,13 +28,14 @@ public class LoginUsuario {
 		String email, senha;
 		email = inEmail;
 		senha = inSenha;
-
+		
 		boolean verification = false;
 		for (Usuario element: listaDeUsuarios) {
-			System.out.println(element.getEmail() + " | " + element.getSenha());
-			if (element.getEmail() == email && element.getSenha() == senha) {
-				System.out.println("Entrou na condicional!");
+			
+			if (element.getEmail().equalsIgnoreCase(email) && element.getSenha().equalsIgnoreCase(senha)) {
+				
 				verification = true;
+				
 			}
 		}
 		return verification;

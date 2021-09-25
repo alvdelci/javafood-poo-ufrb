@@ -5,6 +5,7 @@ import java.util.Scanner;
 import controllers.servicos.PlanoDeRefeicao;
 import controllers.servicos.ProdutoMercado;
 import controllers.servicos.Refeicao;
+import database.servicos.DBProdutoMercado;
 
 public class MenusServicos {
     // Consturtor
@@ -12,6 +13,7 @@ public class MenusServicos {
     };
 
     Scanner input = new Scanner(System.in);
+   
 
     /**
      * Retornar a opcao que o usuario deseja cadastrar/comprar
@@ -19,15 +21,18 @@ public class MenusServicos {
      * @return int opcao
      */
     public int selecionarCategoria() {
-
+        int opcao=0;
+      
         System.out.println("---------------Selecionar Categoria -----------------");
         System.out.println("\n1 - Produto");
         System.out.println("\n2 - Refeição");
         System.out.println("\n3 - Plano de Refeição");
 
-        int opcao = input.nextInt();
-
+         opcao = input.nextInt();
+       
+       
         return opcao;
+       
     }
 
     /**
@@ -41,7 +46,6 @@ public class MenusServicos {
         double valor;
         String nome, codigo;
 
-        System.out.println("-------------------- Cadastrar Produto --------------------------");
         System.out.println("\nCodigo: ");
         codigo = input.nextLine();
         System.out.println("\nNome: ");
@@ -67,7 +71,6 @@ public class MenusServicos {
         String codigo, nome, bebida, acompanhamento;
         double valor;
 
-        System.out.println("-------------------- Cadastrar Refeição --------------------------");
         System.out.println("\nCodigo: ");
         codigo = input.nextLine();
         System.out.println("\nNome: ");
@@ -96,7 +99,6 @@ public class MenusServicos {
         int duracao, marmitex;
         double valor;
 
-        System.out.println("-------------------- Cadastrar Plano de Refeição --------------------------");
         System.out.println("\nCodigo: ");
         codigo = input.nextLine();
         System.out.println("\nNome: ");
@@ -112,4 +114,17 @@ public class MenusServicos {
 
         return data;
     }
+
+    public ProdutoMercado removeProdutoMercado(){
+        DBProdutoMercado produtomercado=new DBProdutoMercado();
+        
+        String codigoResposta;
+        System.out.println("\n Insira o codigo :");
+        codigoResposta=input.nextLine();
+
+    }
+
+    
+
+    
 }

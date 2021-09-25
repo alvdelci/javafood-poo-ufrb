@@ -17,4 +17,10 @@ public class CarrinhoDeCompras {
     public void addCompra(Compras produtoComprado) {
         listaDeCompras.add(produtoComprado);
     }
+
+      //metodo para listar produtos vendidos pelo o usuario
+      public ArrayList<Compras> listarVendidos(){
+       
+        return listaDeCompras;
+    }
 }

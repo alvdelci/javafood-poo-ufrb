@@ -1,7 +1,7 @@
 package principal;
 
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.List;
 import java.util.Scanner;
 
 import controllers.servicos.PlanoDeRefeicao;
@@ -16,6 +16,7 @@ import database.servicos.frete.DBFrete;
 import database.usuario.DBUsuario;
 import views.menus.MenuFrete;
 import views.menus.MenuMain;
+import views.menus.MenusServicos;
 import views.menus.MenusUsuarios;
 
 public class Principal {
@@ -29,7 +30,7 @@ public class Principal {
         // Instância de DBRefeicao
         DBRefeicao modelRefeicao = new DBRefeicao();
         // Instância de DBPlanoDeRefeicao
-        DBPlanoDeRefeicao modelPanoDeRefeicao = new DBPlanoDeRefeicao();
+        DBPlanoDeRefeicao modelPlanoDeRefeicao = new DBPlanoDeRefeicao();
         // Instância de DBFrete
         DBFrete modelFrete = new DBFrete();
 
@@ -38,7 +39,7 @@ public class Principal {
         // Array de objetos do tipo Refeicao
         ArrayList<Refeicao> refeicao = modelRefeicao.returnRefeicao();
         // Array de objectos do tipo PlanoDeRefeicao
-        ArrayList<PlanoDeRefeicao> planoDeRefeicao = modelPanoDeRefeicao.returnPlanoDeRefeicao();
+        ArrayList<PlanoDeRefeicao> planoDeRefeicao = modelPlanoDeRefeicao.returnPlanoDeRefeicao();
         // Array de objetos do tipo Frete
         ArrayList<Frete> frete = modelFrete.returnFretes();
 
@@ -51,6 +52,8 @@ public class Principal {
         MenusUsuarios menuUser = new MenusUsuarios();
         // Instância de LoginUsuario
         LoginUsuario loginUser = new LoginUsuario();
+        //instancia de MenusServiços
+        MenusServicos produtServicos = new MenusServicos();
 
         while (true) {
             int opcao = menu.exibirMenuInicial();
@@ -73,7 +76,8 @@ public class Principal {
                 // Analisa as informações de login
                 verification = loginUser.authentication(inputLogin.get(0), inputLogin.get(1));
 
-                // Se os dados de login estiverem corretos entra no sistema, se não, tenta novamente
+                // Se os dados de login estiverem corretos entra no sistema, se não, tenta
+                // novamente
                 if (!verification) {
                     // Adicionar alguma coisa para o login se repetir
                     System.out.println("Não autenticado");
@@ -166,63 +170,25 @@ public class Principal {
 
                                 // adicionar um anuncio de um produto de acordo com a categoria
                                 case 7:
-                                    String n;
+                                   
                                     try {
+                                       
+                                        // adcionando anuncio
 
-                                        System.out.println("em qual categoria? ");
-                                        n = inputString.nextLine();
-                                        if ("produtos".equals(n)) {
-                                            System.out.println("digite o id: ");
-                                            String codigo = input.nextLine();
-                                            System.out.println("digite o nome: ");
-                                            String nome = inputString.nextLine();
-                                            System.out.println("digite o valor: ");
-                                            double valor = input.nextDouble();
-                                            System.out.println("digite o estoque: ");
-                                            int estoque = input.nextInt();
-
-                                            ProdutoMercado objProduto = new ProdutoMercado(codigo, nome, valor,
-                                                    estoque);
-
-                                            produtoMercado.add(objProduto);
-
+                                        int opcaoCategoria = produtServicos.selecionarCategoria();
+                                        if (opcaoCategoria == 1) {
+                                            System.out.println("------- Cadastrar Produto ----------");
+                                            produtoMercado.add(produtServicos.cadastrarProduto());
+                                        } else if (opcaoCategoria == 2) {
+                                            System.out.println("------- Cadastrar Refeição ----------");
+                                            refeicao.add(produtServicos.cadastrarRefeicao());
+                                        }else if(opcaoCategoria==3){
+                                            System.out.println("------- Cadastrar Plano de Refeição ----------");
+                                            planoDeRefeicao.add(produtServicos.cadastrarPlanoDeRefeicao());
+                                        }else{
+                                            System.out.println("Opção invalida.");
                                         }
-                                        if ("refeicao".equals(n)) {
-                                            System.out.println("digite o id: ");
-                                            String codigo = input.nextLine();
-                                            System.out.println("digite o nome: ");
-                                            String nome = inputString.nextLine();
-                                            System.out.println("digite a bebida: ");
-                                            String bebida = inputString.nextLine();
-                                            System.out.println("digite o acompanhamento: ");
-                                            String acompanhamento = inputString.nextLine();
-                                            System.out.println("digite o valor: ");
-                                            double valor = input.nextDouble();
-
-                                            Refeicao objRefeição = new Refeicao(codigo, nome, bebida, acompanhamento,
-                                                    valor);
-
-                                            refeicao.add(objRefeição);
-
-                                        }
-                                        if ("plano de refeicao".equals(n)) {
-                                            System.out.println("digite o id: ");
-                                            String codigo = input.nextLine();
-                                            System.out.println("digite o nome: ");
-                                            String nome = inputString.nextLine();
-                                            System.out.println("digite a duração: ");
-                                            int duração = input.nextInt();
-                                            System.out.println("digite a quantidade: ");
-                                            int marmitex = input.nextInt();
-                                            System.out.println("digite o valor: ");
-                                            double valor = input.nextDouble();
-
-                                            PlanoDeRefeicao objPlanoDeRefeição = new PlanoDeRefeicao(codigo, nome,
-                                                    duração, marmitex, valor);
-
-                                            planoDeRefeicao.add(objPlanoDeRefeição);
-
-                                        }
+                                        
 
                                     } catch (Exception e) {
                                         System.out.println("Caracter inserido não compatível!");
@@ -231,18 +197,47 @@ public class Principal {
 
                                     break;
 
-                                // remover um anuncio com base no id dele
-                                // case 9:
-                                // int i;
-                                // try {
-                                // System.out.printf("digite o id do produto a ser excluido: ");
-                                // i = input.nextInt();
-                                // produto.remove(i);
-                                // } catch (Exception e) {
-                                // System.out.println("Caracter inserido não compatível!");
+                                case 8:
+                                    try {
 
-                                // }
-                                // break;
+                                    } catch (Exception e) {
+                                        System.out.println("Houve algum erro!!");
+                                    }
+
+                                    //remover um anuncio com base no id dele
+                                     case 9:
+                                    
+                                    try {
+                                       
+                                        // adcionando anuncio
+
+                                        int opcaoCategoria=produtServicos.selecionarCategoria();
+
+                                        if (opcaoCategoria == 1) {
+                                            System.out.println("------- Remover Produto ----------");
+                                            for(){
+                                                
+                                            }
+                                            modelProdutoMercado.removerProduto(produtoR);;
+                                        } else if (opcaoCategoria == 2) {
+                                            System.out.println("------- Remover Refeição ----------");
+
+                                            modelRefeicao.removerRefeicao(removido);;
+                                        }else if(opcaoCategoria==3){
+                                            System.out.println("------- Remover Plano de Refeição ----------");
+                                            
+                                            modelPlanoDeRefeicao.removerPlanoDeRefeicao(pRemovido);;
+                                        }else{
+                                            System.out.println("Opção invalida.");
+                                        }
+                                        
+
+                                    } catch (Exception e) {
+                                        System.out.println("Caracter inserido não compatível!");
+
+                                    }
+
+                                    break;
 
                                 default:
                                     System.out.println("opção invalida");
@@ -255,6 +250,8 @@ public class Principal {
                 }
             }
         }
+        input.close();
+        inputString.close();
 
     }
 
