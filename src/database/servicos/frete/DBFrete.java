@@ -25,6 +25,11 @@ public class DBFrete {
         listaDeFretes.add(frete);
     }
 
+    public void editarFrete( DBFrete fretes){
+        
+           
+        }
+
     // Método listar fretes, retorna todos os fretes cadastrados no sistema
     public ArrayList<Frete> returnFretes() {
         return listaDeFretes;

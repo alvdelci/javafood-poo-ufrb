@@ -39,6 +39,11 @@ public class DBRefeicao extends DBServico {
         refeicaoList.add(refeicao);
     }
 
+    //metodo para remover a refeição
+    public void removerRefeicao(Refeicao removido){
+        
+        refeicaoList.remove(removido);
+    }
     // Retorna todos os refeicaos cadastrados no array de refeicaos
     public ArrayList<Refeicao> returnRefeicao() {
         return refeicaoList;
