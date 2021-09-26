@@ -11,11 +11,14 @@ import database.servicos.DBProdutoMercado;
 import controllers.servicos.frete.Frete;
 import controllers.usuarios.LoginUsuario;
 import controllers.servicos.Refeicao;
+import controllers.servicos.sistemaDeCompra.Compras;
 import database.servicos.DBRefeicao;
+import database.servicos.carrinhoDeCompra.CarrinhoDeCompras;
 import database.servicos.frete.DBFrete;
 import database.usuario.DBUsuario;
 import views.menus.MenuFrete;
 import views.menus.MenuMain;
+import views.menus.MenuSelecionarFrete;
 import views.menus.MenusServicos;
 import views.menus.MenusUsuarios;
 
@@ -29,6 +32,8 @@ public class Principal {
         DBProdutoMercado modelProdutoMercado = new DBProdutoMercado();
         // Instância de DBRefeicao
         DBRefeicao modelRefeicao = new DBRefeicao();
+        // instanci de Carrinho de compras
+        CarrinhoDeCompras modelCompra = new CarrinhoDeCompras();
         // Instância de DBPlanoDeRefeicao
         DBPlanoDeRefeicao modelPlanoDeRefeicao = new DBPlanoDeRefeicao();
         // Instância de DBFrete
@@ -38,6 +43,8 @@ public class Principal {
         ArrayList<ProdutoMercado> produtoMercado = modelProdutoMercado.returnProdutoMercado();
         // Array de objetos do tipo Refeicao
         ArrayList<Refeicao> refeicao = modelRefeicao.returnRefeicao();
+        // Array de objetos do carrinho de compra
+        ArrayList<Compras> listaDeCompras = modelCompra.listarVendidos();
         // Array de objectos do tipo PlanoDeRefeicao
         ArrayList<PlanoDeRefeicao> planoDeRefeicao = modelPlanoDeRefeicao.returnPlanoDeRefeicao();
         // Array de objetos do tipo Frete
@@ -54,6 +61,10 @@ public class Principal {
         LoginUsuario loginUser = new LoginUsuario();
         // instancia de MenusServicos
         MenusServicos menuServicos = new MenusServicos();
+        // Instancia de MenuFrete
+        MenuFrete menuFrete = new MenuFrete();
+        // Instancia de MenuSelecionarFrete
+        MenuSelecionarFrete menuSelecionarFrete = new MenuSelecionarFrete();
 
         while (true) {
             int opcao = menu.exibirMenuInicial();
@@ -189,8 +200,14 @@ public class Principal {
                                     break;
                                 // Editar Frete
                                 case 5:
+                                    try {
 
-                                    // excluir frete com base no codigo do frete informado
+                                    } catch (Exception e) {
+                                        System.out.println("Houve algum erro!!");
+                                    }
+                                    break;
+
+                                // excluir frete com base no codigo do frete informado
                                 case 6:
                                     int j;
                                     try {
@@ -235,8 +252,9 @@ public class Principal {
                                     } catch (Exception e) {
                                         System.out.println("Houve algum erro!!");
                                     }
+                                    break;
 
-                                    // remover um servico a partir de seu código
+                                // remover um servico a partir de seu código
                                 case 9:
 
                                     int categoriaCase9 = menuServicos.selecionarCategoria();
@@ -295,21 +313,107 @@ public class Principal {
                                     }
 
                                     break;
+                                case 10:
+                                    int categoriaCase10 = menuServicos.selecionarCategoria();
+
+                                    if (categoriaCase10 == 1) {
+                                        String codigoDoProduto = menuServicos.selecionarProduto();
+                                        int codigoFrete = menuSelecionarFrete.selecionarFrete();
+
+                                        for (ProdutoMercado element : produtoMercado) {
+                                            if (element.getCodigo().equals(codigoDoProduto)) {
+                                                Frete freteAtual = new Frete();
+
+                                                // procura o frete desejado
+                                                for (Frete body : frete) {
+                                                    if (body.getCodigo() == (codigoFrete)) {
+                                                        freteAtual = body;
+                                                    }
+                                                }
+
+                                                // cria um novo objeto de compra
+                                                Compras compraAtual = new Compras(element.getCodigo(),
+                                                        element.getNome(), element.getValor(), freteAtual);
+                                                // adiciona compra na lista
+                                                listaDeCompras.add(compraAtual);
+
+                                                System.out.println(compraAtual.toString());
+                                                System.out.println("obrigado pela compra!!!");
+                                            }
+                                        }
+
+                                    } else if (categoriaCase10 == 2) {
+                                        String codigoDeRefeicao = menuServicos.selecionarProduto();
+                                        int codigoFrete1 = menuSelecionarFrete.selecionarFrete();
+
+                                        for (Refeicao element2 : refeicao) {
+                                            if (element2.getCodigo().equals(codigoDeRefeicao)) {
+                                                Frete freteAtual = new Frete();
+
+                                                // procura o frete desejado
+                                                for (Frete body : frete) {
+                                                    if (body.getCodigo() == (codigoFrete1)) {
+                                                        freteAtual = body;
+                                                    }
+                                                }
+
+                                                // cria um novo objeto de compra
+                                                Compras compraAtual = new Compras(element2.getCodigo(),
+                                                        element2.getNome(), element2.getValor(), freteAtual);
+                                                // adiciona compra na lista
+                                                listaDeCompras.add(compraAtual);
+
+                                                System.out.println(compraAtual.toString());
+                                                System.out.println("obrigado pela compra!!!");
+                                            }
+                                        }
+
+                                    } else if (categoriaCase10 == 3) {
+
+                                        String codigoPlanoDeRefeicao = menuServicos.selecionarProduto();
+                                        int codigoFrete2 = menuSelecionarFrete.selecionarFrete();
+
+                                        for (PlanoDeRefeicao element3 : planoDeRefeicao) {
+                                            if (element3.getCodigo().equals(codigoPlanoDeRefeicao)) {
+                                                Frete freteAtual = new Frete();
+
+                                                // procura o frete desejado
+                                                for (Frete body : frete) {
+                                                    if (body.getCodigo() == (codigoFrete2)) {
+                                                        freteAtual = body;
+                                                    }
+                                                }
+
+                                                // cria um novo objeto de compra
+                                                Compras compraAtual = new Compras(element3.getCodigo(),
+                                                        element3.getNome(), element3.getValor(), freteAtual);
+                                                // adiciona compra na lista
+                                                listaDeCompras.add(compraAtual);
+
+                                                System.out.println(compraAtual.toString());
+                                                System.out.println("obrigado pela compra!!!");
+                                            }
+
+                                        }
+                                    }
+                                    break;
 
                                 default:
                                     System.out.println("opção invalida");
+                                    break;
+
 
                             }
 
                         }
 
                     }
-                }
-            }
-        }
-        input.close();
-        inputString.close();
 
+                }
+
+            }
+
+        }
     }
 
 }

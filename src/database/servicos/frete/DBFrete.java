@@ -9,9 +9,9 @@ public class DBFrete {
     ArrayList<Frete> listaDeFretes = new ArrayList<Frete>();
 
     // Fretes cadastrados inicialmente
-    Frete fretes = new Frete(1, "Loggi", 14, 25);
-    Frete fretes1 = new Frete(2, "Express", 10, 40);
-    Frete fretes2 = new Frete(3, "Correios", 12, 20);
+    Frete fretes = new Frete(1, "Ubereats", 14, 25);
+    Frete fretes1 = new Frete(2, "ifoodwalk", 10, 40);
+    Frete fretes2 = new Frete(3, "motoboy", 12, 20);
 
     public DBFrete() {
         // adiciona os fretes pré cadastrados na array
