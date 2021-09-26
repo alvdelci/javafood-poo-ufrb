@@ -207,17 +207,24 @@ public class Principal {
                                 case 7:
 
                                     int categoriaCase7 = menuServicos.selecionarCategoria();
-                                    if (categoriaCase7 == 1) {
-                                        System.out.println("------- Cadastrar Produto ----------");
-                                        produtoMercado.add(menuServicos.cadastrarProduto());
-                                    } else if (categoriaCase7 == 2) {
-                                        System.out.println("------- Cadastrar Refeição ----------");
-                                        refeicao.add(menuServicos.cadastrarRefeicao());
-                                    } else if (categoriaCase7 == 3) {
-                                        System.out.println("------- Cadastrar Plano de Refeição ----------");
-                                        planoDeRefeicao.add(menuServicos.cadastrarPlanoDeRefeicao());
-                                    } else {
-                                        System.out.println("Opção invalida.");
+                                    try {
+                                        if (categoriaCase7 == 1) {
+                                            System.out.println("------- Cadastrar Produto ----------");
+                                            produtoMercado.add(menuServicos.cadastrarProduto());
+                                        } else if (categoriaCase7 == 2) {
+                                            System.out.println("------- Cadastrar Refeição ----------");
+                                            refeicao.add(menuServicos.cadastrarRefeicao());
+                                        } else if (categoriaCase7 == 3) {
+                                            System.out.println("------- Cadastrar Plano de Refeição ----------");
+                                            planoDeRefeicao.add(menuServicos.cadastrarPlanoDeRefeicao());
+                                        } else {
+                                            System.out.println("Opção invalida.");
+                                        }
+
+                                    } catch (Exception e) {
+                                        System.out.println("Caracter inserido não compatível!");
+                                        input.nextLine();
+
                                     }
 
                                     break;

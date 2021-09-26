@@ -11,7 +11,7 @@ public class MenusServicos {
     public MenusServicos() {
     };
 
-    Scanner input = new Scanner(System.in);
+    Scanner input;
 
     /**
      * Retornar a opcao que o usuario deseja cadastrar/comprar
@@ -20,6 +20,7 @@ public class MenusServicos {
      */
     public int selecionarCategoria() {
         int opcao = 0;
+        input = new Scanner(System.in);
 
         System.out.println("---------------Selecionar Categoria -----------------");
         System.out.println("\n1 - Produto");
@@ -42,6 +43,7 @@ public class MenusServicos {
         String nome, codigo = " ";
         double valor = 0.0;
         int estoque = 0;
+        input = new Scanner(System.in);
 
         System.out.println("\nCodigo: ");
         codigo = input.nextLine();
@@ -67,6 +69,7 @@ public class MenusServicos {
 
         String codigo, nome, bebida, acompanhamento = " ";
         double valor = 0.0;
+        input = new Scanner(System.in);
 
         System.out.println("\nCodigo: ");
         codigo = input.nextLine();
@@ -95,6 +98,7 @@ public class MenusServicos {
         String codigo, nome = " ";
         int duracao, marmitex = 0;
         double valor = 0.0;
+        input = new Scanner(System.in);
 
         System.out.println("\nCodigo: ");
         codigo = input.nextLine();
@@ -119,6 +123,8 @@ public class MenusServicos {
      */
     public String selecionarProduto() {
         String codigo = " ";
+        input = new Scanner(System.in);
+
         System.out.println("\nInsira o código do produto: ");
         codigo = input.next();
 
