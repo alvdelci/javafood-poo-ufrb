@@ -4,6 +4,8 @@ import controllers.servicos.frete.Frete;
 import database.servicos.carrinhoDeCompra.CarrinhoDeCompras;
 
 public class Compras {
+    
+
     private String codigo, nomeProduto;
     private double valor;
     private Frete frete;
@@ -62,5 +64,10 @@ public class Compras {
 
     public void setFrete(Frete frete) {
         this.frete = frete;
+    }
+    @Override
+    public String toString() {
+        return "\nCompra:  codigo=" + codigo + ", frete=" + frete + ", nome do Produto="
+                + nomeProduto + ", valor=" + valor + "]";
     }
 }

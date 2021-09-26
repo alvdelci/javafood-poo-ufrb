@@ -21,6 +21,10 @@ public class Frete {
         this.valorMinimo = valorMinimo;
         this.empresa = empresa;
     }
+    //construtor vazio
+    public Frete(){
+
+    }
 
     // gets e sets
     public String getEmpresa() {
@@ -58,7 +62,7 @@ public class Frete {
     // formatação
     @Override
     public String toString() {
-        return String.format("%s:%s / %s:%s / %s: %s dias / %s: R$%,.2f", "Código", getCodigo(), "empresa",
+        return String.format("%s:%s / %s:%s / %s: %s minutos / %s: R$%,.2f", "Código", getCodigo(), "empresa",
                 getEmpresa(), "prazo", getPrazo(), "valor minimo", getValorMinimo());
     }
 
