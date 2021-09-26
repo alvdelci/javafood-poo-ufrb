@@ -9,18 +9,23 @@ public class DBUsuario {
     // ArrayList armazena todos os Usuario cadastrados
     private ArrayList<Usuario> usuarioList = new ArrayList<Usuario>();
 
-    //Usuário administrador pré cadastrado
+    // Usuário administrador pré cadastrado
     Usuario usuarioA = new Usuario("Administrador", "admin", "00000000000", "Raccon", "admin@mail.com", "admin");
     // Dados de pré cadastro
     Usuario usuario = new Usuario("Rafithy", "Haspy", "11111111111", "Cruz das Almas", "rafy@mail.com", "batata");
     Usuario usuario1 = new Usuario("Tony", "Stark", "22222222222", "Los Angeles", "starkin@mail.com", "imironman");
     Usuario usuario2 = new Usuario("Wanda", "Vision", "33333333333", "Texas", "vision@mail.com", "scarlet");
 
-    // Construtor sem argumentos, apenas para criação de objetos
+    // Construtor sem argumento
     public DBUsuario() {
         adicionarUsuario(usuario);
         adicionarUsuario(usuario1);
         adicionarUsuario(usuario2);
+    }
+
+    // Construtor de um argumento
+    public DBUsuario(Usuario user) {
+        adicionarUsuario(user);
     }
 
     // Recebe um objeto do tipo Usuario e adiciona à lista de usuarios

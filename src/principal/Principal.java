@@ -21,7 +21,7 @@ import views.menus.MenusUsuarios;
 
 public class Principal {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         // Instância de DBUsuario
         DBUsuario modelUsuario = new DBUsuario();
@@ -127,7 +127,7 @@ public class Principal {
 
                                     break;
 
-                                // ver item especifico pesquisando o id do produto
+                                // Exibe detalhes de um produto cujo codigo foi informado pelo usuário
                                 case 2:
                                     int categoriaCase2 = menuServicos.selecionarCategoria();
                                     try {
@@ -187,8 +187,10 @@ public class Principal {
                                         System.out.println(element.toString());
                                     }
                                     break;
+                                // Editar Frete
+                                case 5:
 
-                                // excluir frete com base no indice (lembre q se inicia no 0 e não no 1)
+                                    // excluir frete com base no codigo do frete informado
                                 case 6:
                                     int j;
                                     try {
@@ -201,7 +203,7 @@ public class Principal {
                                     }
                                     break;
 
-                                // adicionar um anuncio de um produto de acordo com a categoria
+                                // adicionar um servico de um categoria selecionada
                                 case 7:
 
                                     int categoriaCase7 = menuServicos.selecionarCategoria();
@@ -221,11 +223,12 @@ public class Principal {
 
                                     } catch (Exception e) {
                                         System.out.println("Caracter inserido não compatível!");
+                                        input.nextLine();
 
                                     }
 
                                     break;
-
+                                // Editar informações do servico
                                 case 8:
                                     try {
 
@@ -233,26 +236,55 @@ public class Principal {
                                         System.out.println("Houve algum erro!!");
                                     }
 
-                                    // remover um anuncio com base no id dele
+                                    // remover um servico a partir de seu código
                                 case 9:
 
                                     int categoriaCase9 = menuServicos.selecionarCategoria();
                                     try {
 
-                                        // adcionando anuncio
-
                                         if (categoriaCase9 == 1) {
                                             System.out.println("------- Remover Produto ----------");
+                                            String codigoDoProduto = menuServicos.selecionarProduto();
+                                            // Busca e retorna o produto que corresponde ao código do produto informado
+                                            ProdutoMercado produtoEncontrado = modelProdutoMercado
+                                                    .detalharProdutoMercado(codigoDoProduto);
+                                            if (produtoEncontrado != null) {
+                                                modelProdutoMercado.removerProduto(produtoEncontrado);
+                                                System.out
+                                                        .println("\n######## Produto Removido com Sucesso ########\n");
+                                            } else {
+                                                System.out.println("\n######## Produto não Encontrado #########\n");
+                                            }
 
-                                            // modelProdutoMercado.removerProduto();;
                                         } else if (categoriaCase9 == 2) {
                                             System.out.println("------- Remover Refeição ----------");
-
-                                            // modelRefeicao.removerRefeicao();;
+                                            String codigoDaRefeicao = menuServicos.selecionarProduto();
+                                            // Busca e retorna a refeicao que corresponde ao código da refeicao
+                                            // informado
+                                            Refeicao refeicaoEncontrada = modelRefeicao
+                                                    .detalharRefeicao(codigoDaRefeicao);
+                                            if (refeicaoEncontrada != null) {
+                                                modelRefeicao.removerRefeicao(refeicaoEncontrada);
+                                                System.out
+                                                        .println("\n######## Refeicao Removida com Sucesso ########\n");
+                                            } else {
+                                                System.out.println("\n######## Refeição não Encontrada #########\n");
+                                            }
                                         } else if (categoriaCase9 == 3) {
                                             System.out.println("------- Remover Plano de Refeição ----------");
 
-                                            // modelPlanoDeRefeicao.removerPlanoDeRefeicao();;
+                                            String codigoDoPlano = menuServicos.selecionarProduto();
+                                            // Busca e retorna o pano de refeicao que corresponde ao código do
+                                            // planoinformado
+                                            PlanoDeRefeicao planoEncontrado = modelPlanoDeRefeicao
+                                                    .detalharPlanoDeRefeicao(codigoDoPlano);
+                                            if (planoEncontrado != null) {
+                                                modelPlanoDeRefeicao.removerPlanoDeRefeicao(planoEncontrado);
+                                                System.out.println(
+                                                        "\n######## Plano de Refeição Removido com Sucesso ########\n");
+                                            } else {
+                                                System.out.println("\n######## Plano não Encontrado #########\n");
+                                            }
                                         } else {
                                             System.out.println("Opção invalida.");
                                         }

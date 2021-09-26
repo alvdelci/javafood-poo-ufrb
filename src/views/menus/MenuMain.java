@@ -35,15 +35,15 @@ public class MenuMain {
 
         System.out.print("\n-------------------------------MENU------------------------------");
         System.out.println("\n\n[0] Logout");
-        System.out.println("\n[1] ver lista de produtos");
-        System.out.println("\n[2] detalhes do produto");
-        System.out.println("\n[3] cadastrar frete");
-        System.out.println("\n[4] lista de fretes");
-        System.out.println("\n[5] editar frete");
-        System.out.println("\n[6] excluir frete");
-        System.out.println("\n[7] cadastrar anuncio");
-        System.out.println("\n[8] editar anuncio");
-        System.out.println("\n[9] excluir anuncio");
+        System.out.println("\n[1] Ver lista de produtos");
+        System.out.println("\n[2] Detalhes do produto");
+        System.out.println("\n[3] Cadastrar frete");
+        System.out.println("\n[4] Lista de fretes");
+        System.out.println("\n[5] Editar frete");
+        System.out.println("\n[6] Excluir frete");
+        System.out.println("\n[7] Cadastrar Serviço");
+        System.out.println("\n[8] Editar Serviço");
+        System.out.println("\n[9] Excluir Serviço");
 
         int opcao = input.nextInt();
 
