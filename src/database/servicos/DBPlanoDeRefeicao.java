@@ -33,18 +33,51 @@ public class DBPlanoDeRefeicao extends DBServico {
         adicionarPlanoDeRefeicao(plano8);
         adicionarPlanoDeRefeicao(plano9);
     }
-    
-    // Recebe um objeto do tipo PlanoDeRefeicao e adiciona à lista de
-    // planoDeRefeicaos
+
+    /**
+     * Recebe um objecto do tipo PlanoDeRefeicao e o adiciona na lista de refeicoes
+     * do sistemas
+     * 
+     * @param planoDeRefeicao
+     */
     public void adicionarPlanoDeRefeicao(PlanoDeRefeicao planoDeRefeicao) {
         planoDeRefeicaoList.add(planoDeRefeicao);
     }
 
-    public void removerPlanoDeRefeicao(PlanoDeRefeicao pRemovido){
+    /**
+     * Recebe um object do tipo PlanoDeRefeicao e o remove da lista de planos de
+     * refeicao do sistema
+     * 
+     * @param pRemovido
+     */
+    public void removerPlanoDeRefeicao(PlanoDeRefeicao pRemovido) {
         planoDeRefeicaoList.remove(pRemovido);
     }
 
-    // Retorna todos os planoDeRefeicaos cadastrados no array de planoDeRefeicaos
+    /**
+     * Recebe o código de um plano de refeicao e retorna a plano de refeicao
+     * correspondente
+     * 
+     * @param codigo
+     * @return Object<PlanoDeRefeicao>
+     */
+    public PlanoDeRefeicao detalharPlanoDeRefeicao(String codigo) {
+        PlanoDeRefeicao planoDeRefeicaoEncontrado = null;
+
+        for (PlanoDeRefeicao element : planoDeRefeicaoList) {
+            if (element.getCodigo().equals(codigo)) {
+                planoDeRefeicaoEncontrado = element;
+            }
+        }
+
+        return planoDeRefeicaoEncontrado;
+    }
+
+    /**
+     * Retorna a lista de planos de refeicao cadastradas no sistema
+     * 
+     * @return ArrayList<PlanoDeRefeicao>
+     */
     public ArrayList<PlanoDeRefeicao> returnPlanoDeRefeicao() {
         return planoDeRefeicaoList;
     }
