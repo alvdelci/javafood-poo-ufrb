@@ -25,19 +25,16 @@ public class LoginUsuario {
 	 */
 	public boolean authentication(String inEmail, String inSenha) {
 
-		String email, senha;
-		email = inEmail;
-		senha = inSenha;
-		
 		boolean verification = false;
-		for (Usuario element: listaDeUsuarios) {
-			
-			if (element.getEmail().equalsIgnoreCase(email) && element.getSenha().equalsIgnoreCase(senha)) {
-				
+		for (Usuario element : listaDeUsuarios) {
+			System.out.println(element.getEmail() + " | " + element.getSenha());
+			if (element.getEmail().equals(inEmail) && element.getSenha().equals(inSenha)) {
+				System.out.println("\nEntrou\n");
 				verification = true;
-				
+
 			}
 		}
+		System.out.println(verification);
 		return verification;
 	}
 }
