@@ -34,11 +34,13 @@ public class Refeicao extends Servico {
         this.acompanhamento = acompanhamento;
     }
 
-    // formatação
-   /* @Override
+    @Override
     public String toString() {
-        return String.format("%s / %s: %s /%s: %s / %s: ", super.toString(), "bebida", getBebida(), "acompanha",
-                getAcompanhamento(), "valor", getValor());
-    }*/
+        return super.toString();
+    }
+
+    public String detalharRefeicao() {
+        return super.toString() + " | Bebida: " + getBebida() + " | Acompanhamento: " + getAcompanhamento();
+    }
 
 }

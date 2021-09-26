@@ -5,7 +5,7 @@ public class ProdutoMercado extends Servico {
 
 	private int estoque;
 
-	// cosntrutor
+	// Construtor de 4 argumentos
 	public ProdutoMercado(String codigo, String nome, double valor, int estoque) {
 
 		super(codigo, nome, valor);
@@ -18,6 +18,11 @@ public class ProdutoMercado extends Servico {
 
 		this.estoque = estoque;
 
+	}
+
+	// Construtor de 3 argumentos
+	public ProdutoMercado(String codigo, String nome, double valor){
+		super(codigo, nome, valor);
 	}
 
 	// gets e sets
@@ -35,11 +40,8 @@ public class ProdutoMercado extends Servico {
 		return super.toString();
 	}
 
-	// formatação
-	/*@Override
-	public String toString() {
-		return String.format("%s / %s:  / %s: %s", super.toString(), "valor", getValor(), "estoque",
-				//getEstoque());
-	}*/
+	public String detalharProduto() {
+		return super.toString() + " | Estoque: " + getEstoque();
+	}
 
 }
