@@ -34,9 +34,9 @@ public class MenuMain {
     public int exibirMenuPrincipal() {
 
         System.out.print("\n-------------------------------MENU------------------------------");
-        System.out.println("\n\n[0] SAIR");
+        System.out.println("\n\n[0] Logout");
         System.out.println("\n[1] ver lista de produtos");
-        System.out.println("\n[2] detalhes dos produtos");
+        System.out.println("\n[2] detalhes do produto");
         System.out.println("\n[3] cadastrar frete");
         System.out.println("\n[4] lista de fretes");
         System.out.println("\n[5] editar frete");
