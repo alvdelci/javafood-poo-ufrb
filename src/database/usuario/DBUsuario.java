@@ -2,6 +2,7 @@ package database.usuario;
 
 import java.util.ArrayList;
 
+import controllers.usuarios.Administrador;
 import controllers.usuarios.Usuario;
 
 public class DBUsuario {
@@ -10,7 +11,7 @@ public class DBUsuario {
     private ArrayList<Usuario> usuarioList = new ArrayList<Usuario>();
 
     // Usuário administrador pré cadastrado
-    Usuario usuarioA = new Usuario("Administrador", "admin", "00000000000", "Raccon", "admin@mail.com", "admin");
+    Usuario usuarioA = new Administrador("Administrador", "admin", "00000000000", "Raccon", "admin@mail.com", "admin");
     // Dados de pré cadastro
     Usuario usuario = new Usuario("Rafithy", "Haspy", "11111111111", "Cruz das Almas", "rafy@mail.com", "batata");
     Usuario usuario1 = new Usuario("Tony", "Stark", "22222222222", "Los Angeles", "starkin@mail.com", "imironman");

@@ -5,14 +5,19 @@ import java.util.ArrayList;
 import controllers.servicos.sistemaDeCompra.Compras;
 import database.servicos.carrinhoDeCompra.CarrinhoDeCompras;
 
-public class Administrador {
+public class Administrador extends Usuario{
  
-    private String nome;
+    
     private int id_administrador;
     private double valorTotal;
     
-    
-    public Administrador(){
+    //construtor
+    public Administrador(String nome, String sobrenome, String cpf,String cidade, String email, String senha){
+        super(nome, sobrenome, cpf, cidade, email, senha);
+        
+        setId_administrador(id_administrador);
+        setValorTotal(valorTotal);
+
 
     }
     
@@ -24,13 +29,7 @@ public class Administrador {
         this.valorTotal = valorTotal;
     }
  
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    
 
     public int getId_administrador() {
         return id_administrador;
