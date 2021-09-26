@@ -40,8 +40,11 @@ public class PlanoDeRefeicao extends Servico {
 
     @Override
     public String toString() {
-
         return super.toString();
+    }
+
+    public String detalharPlano() {
+        return super.toString() + " | Duração: " + getduracao() + " Meses " + "| Mamitex: " + getMarmitex();
     }
 
 }

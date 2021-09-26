@@ -5,7 +5,6 @@ import java.util.Scanner;
 import controllers.servicos.PlanoDeRefeicao;
 import controllers.servicos.ProdutoMercado;
 import controllers.servicos.Refeicao;
-import database.servicos.DBProdutoMercado;
 
 public class MenusServicos {
     // Consturtor
@@ -13,7 +12,6 @@ public class MenusServicos {
     };
 
     Scanner input = new Scanner(System.in);
-   
 
     /**
      * Retornar a opcao que o usuario deseja cadastrar/comprar
@@ -21,18 +19,17 @@ public class MenusServicos {
      * @return int opcao
      */
     public int selecionarCategoria() {
-        int opcao=0;
-      
+        int opcao = 0;
+
         System.out.println("---------------Selecionar Categoria -----------------");
         System.out.println("\n1 - Produto");
         System.out.println("\n2 - Refeição");
         System.out.println("\n3 - Plano de Refeição");
 
-         opcao = input.nextInt();
-       
-       
+        opcao = input.nextInt();
+
         return opcao;
-       
+
     }
 
     /**
@@ -42,9 +39,9 @@ public class MenusServicos {
      * @return Object<Produtos>
      */
     public ProdutoMercado cadastrarProduto() {
-        int estoque;
-        double valor;
-        String nome, codigo;
+        String nome, codigo = " ";
+        double valor = 0.0;
+        int estoque = 0;
 
         System.out.println("\nCodigo: ");
         codigo = input.nextLine();
@@ -68,8 +65,8 @@ public class MenusServicos {
      */
     public Refeicao cadastrarRefeicao() {
 
-        String codigo, nome, bebida, acompanhamento;
-        double valor;
+        String codigo, nome, bebida, acompanhamento = " ";
+        double valor = 0.0;
 
         System.out.println("\nCodigo: ");
         codigo = input.nextLine();
@@ -95,9 +92,9 @@ public class MenusServicos {
      * @return Object<PlanoDeRefeicao>
      */
     public PlanoDeRefeicao cadastrarPlanoDeRefeicao() {
-        String codigo, nome;
-        int duracao, marmitex;
-        double valor;
+        String codigo, nome = " ";
+        int duracao, marmitex = 0;
+        double valor = 0.0;
 
         System.out.println("\nCodigo: ");
         codigo = input.nextLine();
@@ -115,16 +112,17 @@ public class MenusServicos {
         return data;
     }
 
-    public ProdutoMercado removeProdutoMercado(){
-        DBProdutoMercado produtomercado=new DBProdutoMercado();
-        
-        String codigoResposta;
-        System.out.println("\n Insira o codigo :");
-        codigoResposta=input.nextLine();
+    /**
+     * Retorna o codigo do produto/refeicao/plano de refeicao informado pelo usuario
+     * 
+     * @return String codigo
+     */
+    public String selecionarProduto() {
+        String codigo = " ";
+        System.out.println("\nInsira o código do produto: ");
+        codigo = input.next();
 
+        return codigo;
     }
 
-    
-
-    
 }

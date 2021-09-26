@@ -34,17 +34,49 @@ public class DBRefeicao extends DBServico {
         adicionarRefeicao(refeicao9);
     }
 
-    // Recebe um objeto do tipo Refeicao e adiciona à lista de refeicaos
+    /**
+     * Recebe um objecto do tipo Refeicao e o adiciona na lista de refeiçoes
+     * cadastrados no sistema
+     * 
+     * @param refeicao
+     */
     public void adicionarRefeicao(Refeicao refeicao) {
         refeicaoList.add(refeicao);
     }
 
-    //metodo para remover a refeição
-    public void removerRefeicao(Refeicao removido){
-        
+    /**
+     * Recebe o código de um produto e o remove da lista de produtos do sistema
+     * 
+     * @param removido
+     */
+    public void removerRefeicao(Refeicao removido) {
+
         refeicaoList.remove(removido);
     }
-    // Retorna todos os refeicaos cadastrados no array de refeicaos
+
+    /**
+     * Recebe o código de uma refeicao e retorna a refeicaocorrespondente
+     * 
+     * @param codigo
+     * @return Object<Refeicao>
+     */
+    public Refeicao detalharRefeicao(String codigo) {
+        Refeicao refeicaoEncontrada = null;
+
+        for (Refeicao element : refeicaoList) {
+            if (element.getCodigo().equals(codigo)) {
+                refeicaoEncontrada = element;
+            }
+        }
+
+        return refeicaoEncontrada;
+    }
+
+    /**
+     * Retorna a lista de todas as refeicoes cadastradas no sistema
+     * 
+     * @return ArrayList<Refeicao>
+     */
     public ArrayList<Refeicao> returnRefeicao() {
         return refeicaoList;
     }

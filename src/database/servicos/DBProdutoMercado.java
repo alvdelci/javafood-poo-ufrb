@@ -35,24 +35,73 @@ public class DBProdutoMercado extends DBServico {
         adicionarProduto(produto9);
     }
 
-    // Recebe um objeto do tipo ProdutoMercado e adiciona à lista de Produtos
+    /**
+     * Recebe um objeto do tipo ProdutoMercado e adiciona à lista de Produtos
+     * 
+     * @param produto
+     */
     public void adicionarProduto(ProdutoMercado produto) {
         produtoList.add(produto);
     }
 
-    public void removerProduto(ProdutoMercado produtoR){
+    // Comentar aqui
+    public void editarProduto(ProdutoMercado produto) {
+        // for (ProdutoMercado element : produtoList) {
+
+        // produto.getCodigo();
+        // }
+    }
+
+    /**
+     * Recebe um objeto do tipo Produto e o remove da lista de produtos do sistema
+     * 
+     * @param produtoR
+     */
+    public void removerProduto(ProdutoMercado produtoR) {
         produtoList.remove(produtoR);
     }
 
-    public void editarProduto(ProdutoMercado produto){
-        for(ProdutoMercado element: produtoList){
-            
-            produto.getCodigo();
+    /**
+     * Recebe o código de um produto e retorna o produto correspondente
+     * 
+     * @param codigo
+     * @return Object<ProdutoMercado>
+     */
+    public ProdutoMercado detalharProdutoMercado(String codigo) {
+        ProdutoMercado produtoEncontrado = null;
+
+        for (ProdutoMercado element : produtoList) {
+            if (element.getCodigo().equals(codigo)) {
+                produtoEncontrado = element;
+            }
         }
+
+        return produtoEncontrado;
     }
 
-    // Retorna todos os produtos cadastrados no array de produtos
+    /**
+     * Retorna uma lista com todos os produtos do tipo ProdutoMercado cadastrados no
+     * sistema
+     * 
+     * @return ArrayList<ProdutoMercado>
+     */
     public ArrayList<ProdutoMercado> returnProdutoMercado() {
         return produtoList;
     }
+
+    // /**
+    //  * Retorna uma lsita de produtos com as principais informações do produto
+    //  * 
+    //  * @return ArrayList<ProdutoMercado>
+    //  */
+    // public ArrayList<ProdutoMercado> listProdutoMercado() {
+    //     ArrayList<ProdutoMercado> listaDeProdutosFormatados = new ArrayList<ProdutoMercado>();
+    //     for (ProdutoMercado element : produtoList) {
+    //         ProdutoMercado produtoFormatado = new ProdutoMercado(element.getCodigo(), element.getNome(),
+    //                 element.getValor());
+    //         listaDeProdutosFormatados.add(produtoFormatado);
+    //     }
+
+    //     return listaDeProdutosFormatados;
+    // }
 }
