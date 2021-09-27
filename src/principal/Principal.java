@@ -9,7 +9,9 @@ import controllers.servicos.ProdutoMercado;
 import database.servicos.DBPlanoDeRefeicao;
 import database.servicos.DBProdutoMercado;
 import controllers.servicos.frete.Frete;
+import controllers.usuarios.Administrador;
 import controllers.usuarios.LoginUsuario;
+import controllers.usuarios.Usuario;
 import controllers.servicos.Refeicao;
 import controllers.servicos.sistemaDeCompra.Compras;
 import database.servicos.DBRefeicao;
@@ -39,6 +41,8 @@ public class Principal {
         // Instância de DBFrete
         DBFrete modelFrete = new DBFrete();
 
+        // Array de Usuarios
+        ArrayList<Usuario> usuario = modelUsuario.returnUsuario();
         // Array de objectos do tipo ProdutoMercado
         ArrayList<ProdutoMercado> produtoMercado = modelProdutoMercado.returnProdutoMercado();
         // Array de objetos do tipo Refeicao
@@ -51,7 +55,6 @@ public class Principal {
         ArrayList<Frete> frete = modelFrete.returnFretes();
 
         Scanner input = new Scanner(System.in);
-        Scanner inputString = new Scanner(System.in);
 
         // Instancia da classe MenuMain
         MenuMain menu = new MenuMain();
@@ -61,8 +64,6 @@ public class Principal {
         LoginUsuario loginUser = new LoginUsuario();
         // instancia de MenusServicos
         MenusServicos menuServicos = new MenusServicos();
-        // Instancia de MenuFrete
-        MenuFrete menuFrete = new MenuFrete();
         // Instancia de MenuSelecionarFrete
         MenuSelecionarFrete menuSelecionarFrete = new MenuSelecionarFrete();
 
@@ -200,18 +201,21 @@ public class Principal {
                                     break;
                                 // Editar Frete
                                 case 5:
-                                    try {
+                                    //Testes da funcionalida de administrador
+                                    // System.out.println("-------------- Buscar Produtos do Usuario --------------\n");
+                                    // System.out.println("Informe o CPF do Usuario: ");
+                                    // String cpfIn = " ";
+                                    // cpfIn = input.nextLine();
+                                    // Administrador admin = new Administrador();
+                                    // admin.listarProdutosDoUsuario(cpfIn, usuario, produtoMercado, refeicao,
+                                    //         planoDeRefeicao);
 
-                                    } catch (Exception e) {
-                                        System.out.println("Houve algum erro!!");
-                                    }
-                                    break;
-
-                                // excluir frete com base no codigo do frete informado
+                                    // excluir frete com base no codigo do frete informado
                                 case 6:
                                     int j;
+                                    System.out.println("----------------- Remover Frete ------------------\n");
                                     try {
-                                        System.out.printf("digite a posição a ser excluida: ");
+                                        System.out.printf("Informe índice do frete: ");
                                         j = input.nextInt();
                                         frete.remove(j);
                                     } catch (Exception e) {
@@ -402,7 +406,6 @@ public class Principal {
                                     System.out.println("opção invalida");
                                     break;
 
-
                             }
 
                         }
@@ -414,6 +417,7 @@ public class Principal {
             }
 
         }
+        input.close();
     }
 
 }
