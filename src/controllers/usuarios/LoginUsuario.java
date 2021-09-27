@@ -27,9 +27,7 @@ public class LoginUsuario {
 
 		boolean verification = false;
 		for (Usuario element : listaDeUsuarios) {
-			System.out.println(element.getEmail() + " | " + element.getSenha());
 			if (element.getEmail().equals(inEmail) && element.getSenha().equals(inSenha)) {
-				System.out.println("\nEntrou\n");
 				verification = true;
 
 			}
