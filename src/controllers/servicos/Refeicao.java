@@ -6,9 +6,10 @@ public class Refeicao extends Servico {
     private String acompanhamento;
 
     // construtor
-    public Refeicao(String codigo, String nome, String bebida, String acompanhamento, double valor) {
+    public Refeicao(String codigo, String nome, String bebida, String acompanhamento, double valor,
+            String responsavel) {
 
-        super(codigo, nome, valor);
+        super(codigo, nome, valor, responsavel);
 
         if (valor <= 0.0)
             throw new IllegalArgumentException("Valor must be > 0.0");

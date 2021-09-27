@@ -6,9 +6,9 @@ public class ProdutoMercado extends Servico {
 	private int estoque;
 
 	// Construtor de 4 argumentos
-	public ProdutoMercado(String codigo, String nome, double valor, int estoque) {
+	public ProdutoMercado(String codigo, String nome, double valor, int estoque, String responsavel) {
 
-		super(codigo, nome, valor);
+		super(codigo, nome, valor, responsavel);
 
 		if (valor <= 0.0)
 			throw new IllegalArgumentException("Valor must be > 0.0");
@@ -21,8 +21,8 @@ public class ProdutoMercado extends Servico {
 	}
 
 	// Construtor de 3 argumentos
-	public ProdutoMercado(String codigo, String nome, double valor){
-		super(codigo, nome, valor);
+	public ProdutoMercado(String codigo, String nome, double valor, String responsavel) {
+		super(codigo, nome, valor, responsavel);
 	}
 
 	// gets e sets
@@ -33,10 +33,10 @@ public class ProdutoMercado extends Servico {
 	public void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
-	
+
 	@Override
 	public String toString() {
-		
+
 		return super.toString();
 	}
 
