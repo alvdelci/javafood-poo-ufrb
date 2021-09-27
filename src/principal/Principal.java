@@ -9,9 +9,9 @@ import controllers.servicos.ProdutoMercado;
 import database.servicos.DBPlanoDeRefeicao;
 import database.servicos.DBProdutoMercado;
 import controllers.servicos.frete.Frete;
-import controllers.usuarios.Administrador;
+//import controllers.usuarios.Administrador;
 import controllers.usuarios.LoginUsuario;
-import controllers.usuarios.Usuario;
+//import controllers.usuarios.Usuario;
 import controllers.servicos.Refeicao;
 import controllers.servicos.sistemaDeCompra.Compras;
 import database.servicos.DBRefeicao;
@@ -42,7 +42,7 @@ public class Principal {
         DBFrete modelFrete = new DBFrete();
 
         // Array de Usuarios
-        ArrayList<Usuario> usuario = modelUsuario.returnUsuario();
+        //ArrayList<Usuario> usuario = modelUsuario.returnUsuario();
         // Array de objectos do tipo ProdutoMercado
         ArrayList<ProdutoMercado> produtoMercado = modelProdutoMercado.returnProdutoMercado();
         // Array de objetos do tipo Refeicao
