@@ -4,8 +4,7 @@ public class Usuario {
     private String nome, sobrenome, cpf, cidade, email, senha;
 
     // Construtor de 6 argumentos
-    public Usuario(String nome, String sobrenome, String cpf, String cidade, String email,
-            String senha) {
+    public Usuario(String nome, String sobrenome, String cpf, String cidade, String email, String senha) {
         setNome(nome);
         setSobrenome(sobrenome);
         setCpf(cpf);

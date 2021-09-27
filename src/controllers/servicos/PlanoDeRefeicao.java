@@ -7,9 +7,9 @@ public class PlanoDeRefeicao extends Servico {
     private int marmitex;
 
     // construtor
-    public PlanoDeRefeicao(String codigo, String nome, int duracao, int marmitex, double valor) {
+    public PlanoDeRefeicao(String codigo, String nome, int duracao, int marmitex, double valor, String responsavel) {
 
-        super(codigo, nome, valor);
+        super(codigo, nome, valor, responsavel);
 
         if (valor <= 0.0)
             throw new IllegalArgumentException("Valor must be > 0.0");

@@ -44,7 +44,7 @@ public class MenuMain {
         System.out.println("\n[7] Cadastrar Serviço");
         System.out.println("\n[8] Editar Serviço");
         System.out.println("\n[9] Excluir Serviço");
-        System.out.println("\n[10] comprar");
+        System.out.println("\n[10] Comprar");
 
         int opcao = input.nextInt();
 

@@ -40,7 +40,7 @@ public class MenusServicos {
      * @return Object<Produtos>
      */
     public ProdutoMercado cadastrarProduto() {
-        String nome, codigo = " ";
+        String nome, codigo, responsavel = " ";
         double valor = 0.0;
         int estoque = 0;
         input = new Scanner(System.in);
@@ -53,8 +53,10 @@ public class MenusServicos {
         valor = input.nextDouble();
         System.out.println("\nQuantidade em Estoque: ");
         estoque = input.nextInt();
+        System.out.println("CPF do Responsável: ");
+        responsavel = input.nextLine();
 
-        ProdutoMercado data = new ProdutoMercado(codigo, nome, valor, estoque);
+        ProdutoMercado data = new ProdutoMercado(codigo, nome, valor, estoque, responsavel);
 
         return data;
     }
@@ -67,7 +69,7 @@ public class MenusServicos {
      */
     public Refeicao cadastrarRefeicao() {
 
-        String codigo, nome, bebida, acompanhamento = " ";
+        String codigo, nome, bebida, acompanhamento, responsavel = " ";
         double valor = 0.0;
         input = new Scanner(System.in);
 
@@ -81,8 +83,10 @@ public class MenusServicos {
         acompanhamento = input.nextLine();
         System.out.println("/nValor: ");
         valor = input.nextDouble();
+        System.out.println("CPF do Responsável: ");
+        responsavel = input.nextLine();
 
-        Refeicao data = new Refeicao(codigo, nome, bebida, acompanhamento, valor);
+        Refeicao data = new Refeicao(codigo, nome, bebida, acompanhamento, valor, responsavel);
 
         return data;
 
@@ -95,7 +99,7 @@ public class MenusServicos {
      * @return Object<PlanoDeRefeicao>
      */
     public PlanoDeRefeicao cadastrarPlanoDeRefeicao() {
-        String codigo, nome = " ";
+        String codigo, nome, responsavel = " ";
         int duracao, marmitex = 0;
         double valor = 0.0;
         input = new Scanner(System.in);
@@ -110,8 +114,10 @@ public class MenusServicos {
         marmitex = input.nextInt();
         System.out.println("\nValor: ");
         valor = input.nextDouble();
+        System.out.println("CPF do Responsável: ");
+        responsavel = input.nextLine();
 
-        PlanoDeRefeicao data = new PlanoDeRefeicao(codigo, nome, duracao, marmitex, valor);
+        PlanoDeRefeicao data = new PlanoDeRefeicao(codigo, nome, duracao, marmitex, valor, responsavel);
 
         return data;
     }

@@ -3,7 +3,6 @@ package views.menus;
 import java.util.Scanner;
 
 import controllers.servicos.frete.Frete;
-import database.servicos.frete.DBFrete;
 
 public class MenuFrete {
 
@@ -38,10 +37,4 @@ public class MenuFrete {
         return data;
 
     }
-    /*public void EditarFrete(Integer id, String nome, Frete[] frete) {
-        for(Frete element : frete){
-            if(element.getId() == id) {
-                element.setNome(nome);
-            }
-    }*/
 }

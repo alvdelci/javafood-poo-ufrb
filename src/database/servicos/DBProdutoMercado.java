@@ -10,16 +10,16 @@ public class DBProdutoMercado extends DBServico {
     private ArrayList<ProdutoMercado> produtoList = new ArrayList<ProdutoMercado>();
 
     // Dados de pré cadastro
-    ProdutoMercado produto = new ProdutoMercado("0", "paçoca", 2.70, 800);
-    ProdutoMercado produto1 = new ProdutoMercado("1", "bolo", 5.00, 50);
-    ProdutoMercado produto2 = new ProdutoMercado("2", "pizza brotinho", 2.50, 100);
-    ProdutoMercado produto3 = new ProdutoMercado("3", "hamburguer", 20.00, 45);
-    ProdutoMercado produto4 = new ProdutoMercado("4", "cerveja itaipava", 3.50, 400);
-    ProdutoMercado produto5 = new ProdutoMercado("5", "cerveja devassa", 4.00, 200);
-    ProdutoMercado produto6 = new ProdutoMercado("6", "guarana antartica", 5.70, 200);
-    ProdutoMercado produto7 = new ProdutoMercado("7", "coca cola", 6.00, 300);
-    ProdutoMercado produto8 = new ProdutoMercado("8", "fanta uva", 6.50, 300);
-    ProdutoMercado produto9 = new ProdutoMercado("9", "fanta laranja", 6.50, 300);
+    ProdutoMercado produto = new ProdutoMercado("0", "paçoca", 2.70, 800, "11111111111");
+    ProdutoMercado produto1 = new ProdutoMercado("1", "bolo", 5.00, 50, "11111111111");
+    ProdutoMercado produto2 = new ProdutoMercado("2", "pizza brotinho", 2.50, 100, "22222222222");
+    ProdutoMercado produto3 = new ProdutoMercado("3", "hamburguer", 20.00, 45, "22222222222");
+    ProdutoMercado produto4 = new ProdutoMercado("4", "cerveja itaipava", 3.50, 400, "33333333333");
+    ProdutoMercado produto5 = new ProdutoMercado("5", "cerveja devassa", 4.00, 200, "33333333333");
+    ProdutoMercado produto6 = new ProdutoMercado("6", "guarana antartica", 5.70, 200, "44444444444");
+    ProdutoMercado produto7 = new ProdutoMercado("7", "coca cola", 6.00, 300, "11111111111");
+    ProdutoMercado produto8 = new ProdutoMercado("8", "fanta uva", 6.50, 300, "11111111111");
+    ProdutoMercado produto9 = new ProdutoMercado("9", "fanta laranja", 6.50, 300, "33333333333");
 
     // Construtor sem argumentos, apenas para criação de objetos
     public DBProdutoMercado() {
